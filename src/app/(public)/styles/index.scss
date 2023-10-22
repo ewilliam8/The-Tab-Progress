@@ -1,0 +1,14 @@
+@import "variables";
+@import "reset";
+
+body {
+    background: #000309;
+    color: white;
+    font-family: "Inter", "Times New Roman", serif;
+}
+
+.app {
+    width: 100%;
+    max-width: var(--max-page-width);
+    margin: 0 auto;
+}
