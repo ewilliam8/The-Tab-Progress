@@ -1,9 +1,9 @@
-import {memo} from "react";
-import Link from "next/link";
+import {memo} from 'react';
+import Link from 'next/link';
 import type {PropsWithChildren} from 'react'
 
 // styles
-import {clsx} from "clsx";
+import {clsx} from 'clsx';
 import styles from './AppLink.module.scss'
 
 export enum AppLinkTheme {

@@ -1,11 +1,11 @@
-import {memo} from "react"
+import {memo} from 'react'
 
 // Styles
 import styles from './LandingHeader.module.scss'
 
 // Components
-import {Box} from "@/shared/ui/Box"
-import {AppLink, AppLinkTheme} from "@/shared/ui/AppLink"
+import {Box} from '@/shared/ui/Box'
+import {AppLink, AppLinkTheme} from '@/shared/ui/AppLink'
 
 export const LandingHeader = memo(() => {
     return (

@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
+import './styles/index.scss'
+import {APP_DESC, APP_NAME} from '@/shared/config/consts'
+
 const inter = Inter({ subsets: ['latin'] })
 
-import './styles/index.scss'
-
 export const metadata: Metadata = {
-    title: 'The Tab Progress',
-    description: 'Track your activity',
+    title: APP_NAME,
+    description: APP_DESC,
 }
 
 export default function RootLayout({
@@ -16,7 +17,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="ru">
+        <html lang="en">
             <body className={inter.className}>
                 <main className="app">
                     {children}
