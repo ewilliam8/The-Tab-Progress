@@ -1,26 +1,25 @@
 import {memo} from "react"
-import Image from "next/dist/client/legacy/image"
 
+// Styles
 import styles from './LandingHeader.module.scss'
 
 // Components
-import {Box} from "@/shared/ui/Box";
-import {Button, ButtonTheme} from "@/shared/ui/Button/ui/Button";
+import {Box} from "@/shared/ui/Box"
+import {AppLink, AppLinkTheme} from "@/shared/ui/AppLink"
 
 export const LandingHeader = memo(() => {
     return (
         <div className={styles.LandingHeader}>
-            <Box alignItems justifyContent>
-                <Image
-                    alt="Logo"
-                    fill="#fff"
-                    width={32}
-                    height={32}
-                    src="/assets/icons/infinity.svg"
-                />
+            <Box alignItems classname={styles.items}>
                 The Tab Progress
-                <Button theme={ButtonTheme.ROUNDED}>Dashboard</Button>
+                <AppLink
+                    to={'/dashboard'}
+                    theme={AppLinkTheme.OUTLINED}
+                >
+                    Dashboard
+                </AppLink>
             </Box>
+            <div className={styles.color} />
         </div>
     )
 })

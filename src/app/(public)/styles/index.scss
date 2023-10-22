@@ -2,9 +2,10 @@
 @import "reset";
 
 body {
-    background: #000309;
-    color: white;
+    background: var(--bg-color);
+    color: var(--primary-color);
     font-family: "Inter", "Times New Roman", serif;
+    overflow-x: hidden;
 }
 
 .app {

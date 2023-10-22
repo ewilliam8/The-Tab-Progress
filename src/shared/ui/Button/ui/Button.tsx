@@ -1,14 +1,16 @@
-import React, {memo} from "react"
+import {memo} from "react"
 import type {PropsWithChildren} from "react"
-import styles from './Button.module.scss'
+
+// styles
 import {clsx} from "clsx"
+import styles from './Button.module.scss'
 
 export enum ButtonTheme {
-    ROUNDED= 'rounded'
+    ROUNDED = 'rounded',
+    OUTLINED = 'outlined'
 }
 
 interface ButtonProps extends PropsWithChildren{
-    children: React.ReactNode
     type?: 'submit' | 'reset' | 'button'
     theme?: ButtonTheme
 }
@@ -19,7 +21,7 @@ export const Button = memo((props: ButtonProps) => {
         type,
         theme,
     } = props
-    console.log(theme)
+
     return (
         <button
             type={type}
@@ -31,6 +33,5 @@ export const Button = memo((props: ButtonProps) => {
         </button>
     )
 })
-
 
 Button.displayName = 'Button';

@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "lint:style": "npx stylelint \"**/*.css\"",
     "lint:style:fix": "npx stylelint \"**/*.css\" --fix"
   },

@@ -5,23 +5,21 @@ import styles from './Box.module.scss'
 import { clsx } from 'clsx'
 
 interface BoxProps extends PropsWithChildren {
-    children?: React.ReactNode
-    className?: string
+    classname?: string
     alignItems?: boolean
-    justifyContent?: boolean
+    justifyContent?: boolean,
 }
 
 export const Box = memo((props: BoxProps) => {
     const {
         children,
-        className,
+        classname,
         alignItems,
         justifyContent
     } = props
 
     return (
-        <div className={clsx({
-            className,
+        <div className={clsx([classname], {
             [styles.alignItems] : alignItems,
             [styles.justifyContent] : justifyContent,
         })}>

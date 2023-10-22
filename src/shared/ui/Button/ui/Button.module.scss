@@ -8,3 +8,13 @@
     outline: none;
     border: none;
 }
+
+.outlined {
+    color: #d9d9d9;
+    background: none;
+    padding: 8px;
+    outline: 1px solid rgba(248, 248, 248, 0.6);
+    border: none;
+    border-radius: 16px;
+    text-decoration: none;
+}
