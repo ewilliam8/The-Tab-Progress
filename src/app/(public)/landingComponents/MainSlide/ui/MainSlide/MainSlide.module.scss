@@ -1,17 +1,30 @@
 .MainSlide {
     padding: 20px;
+    position: relative;
 }
 
 .title {
     margin-top: 160px;
-    font-size: 122px;
     background: linear-gradient(var(--primary-color), var(--secondary-color), var(--bg-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    @media (max-width: 900px) {
+        margin-top: 70px;
+    }
 }
 
 .desc {
-    //margin-top: -15px;
     margin-left: 10px;
     color: var(--secondary-color);
+}
+
+.chart {
+    position: absolute;
+    right: 0;
+    top: 35%;
+
+    @media (max-width: 670px) {
+        display: none;
+    }
 }

@@ -1,1 +1,1 @@
-export { MainSlide } from './ui/MainSlide'
+export { MainSlide } from './ui/MainSlide/MainSlide'

@@ -1,6 +1,8 @@
 import {memo} from 'react'
 import styles from './MainSlide.module.scss'
-import {APP_DESC} from '@/shared/config/consts';
+import {APP_DESC} from '@/shared/config/consts'
+
+import {Chart} from '../Chart/Chart'
 
 export const MainSlide = memo(() => {
     return (
@@ -9,8 +11,11 @@ export const MainSlide = memo(() => {
             <p className={styles.desc}>
                 *Achieve your aim tracking activity
             </p>
+            <div className={styles.chart}>
+                <Chart />
+            </div>
         </div>
     )
 })
 
-MainSlide.displayName = 'MainSlide';
+MainSlide.displayName = 'MainSlide'
