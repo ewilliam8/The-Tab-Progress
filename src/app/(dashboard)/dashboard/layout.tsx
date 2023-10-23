@@ -1,4 +1,5 @@
 import {APP_DESC, APP_NAME} from '@/shared/config/consts'
+import './styles/index.scss'
 
 export const metadata = {
     title: APP_NAME,
@@ -12,7 +13,11 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body>{children}</body>
+            <body className="app app_light_theme">
+                <div className="layout">
+                    {children}
+                </div>
+            </body>
         </html>
     )
 }

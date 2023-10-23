@@ -1,3 +1,10 @@
+import {Navbar} from '@/features/Navbar';
+
 export default function DashboardPage() {
-    return <div>Dashboard</div>
+
+    return (
+        <div>
+            <Navbar />
+        </div>
+    )
 }
