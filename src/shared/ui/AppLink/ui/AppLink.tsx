@@ -26,9 +26,8 @@ export const AppLink = memo((props: AppLinkProps) => {
 
     return (
         <Link
-            className={clsx({
-                className,
-                [styles[theme]]: theme
+            className={clsx([theme && styles[theme]], {
+                className
             })}
             href={to}
         >
