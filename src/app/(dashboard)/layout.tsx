@@ -4,6 +4,7 @@ import {
     APP_DESC,
     APP_NAME
 } from '@/shared/consts/app'
+import {Analytics} from '@vercel/analytics/react'
 
 export const metadata = {
     title: 'Dashboard: ' + APP_NAME,
@@ -18,6 +19,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className="app app_dark_theme">{children}</body>
+            <Analytics />
         </html>
     )
 }
