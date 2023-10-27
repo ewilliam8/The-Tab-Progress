@@ -1,7 +1,7 @@
-import type {ReactNode} from 'react';
+import type {ReactNode} from 'react'
 import './styles/index.scss'
-
-import {APP_DESC, APP_NAME} from '@/shared/consts/app';
+import {Analytics} from '@vercel/analytics/react'
+import {APP_DESC, APP_NAME} from '@/shared/consts/app'
 
 export const metadata = {
     title: 'Dashboard - ' + APP_NAME,
@@ -16,6 +16,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>{children}</body>
+            <Analytics />
         </html>
     )
 }
