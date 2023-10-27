@@ -20,12 +20,14 @@ export const Button = memo((props: ButtonProps) => {
         children,
         type,
         theme,
+        ...otherProps
     } = props
 
     return (
         <button
             type={type}
-            className={clsx([theme && styles[theme]])}
+            className={clsx(styles.Button, [theme && styles[theme]])}
+            {...otherProps}
         >
             {children}
         </button>

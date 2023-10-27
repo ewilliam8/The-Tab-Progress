@@ -1,12 +1,11 @@
 .Button {
-
+    padding: var(--default-padding);
 }
 
 .rounded {
-    padding: 8px;
-    border-radius: 10px;
     outline: none;
     border: none;
+    border-radius: var(--border-raduis);
     color: var(--primary-color);
 }
 

@@ -1,0 +1,12 @@
+.Input {
+    padding: var(--default-padding);
+
+    border: none;
+    border-radius: var(--border-raduis);
+    outline: 1px solid var(--primary-color);
+    background-color: var(--bg-color);
+
+    &:focus {
+        outline: 1px solid var(--accent-color);
+    }
+}

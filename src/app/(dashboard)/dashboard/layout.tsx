@@ -1,23 +1,19 @@
-import {APP_DESC, APP_NAME} from '@/shared/config/consts'
-import './styles/index.scss'
+import type {ReactNode} from 'react';
+import {APP_DESC, APP_NAME} from '@/shared/consts/app';
 
 export const metadata = {
-    title: APP_NAME,
-    description: APP_DESC,
+    title: 'Dashboard: ' + APP_NAME,
+    description: 'Dashboard: ' + APP_DESC,
 }
 
 export default function RootLayout({
     children,
 }: {
-  children: React.ReactNode
+  children: ReactNode
 }) {
     return (
-        <html lang="en">
-            <body className="app app_light_theme">
-                <div className="layout">
-                    {children}
-                </div>
-            </body>
-        </html>
+        <div className="layout app app_light_theme">
+            {children}
+        </div>
     )
 }
