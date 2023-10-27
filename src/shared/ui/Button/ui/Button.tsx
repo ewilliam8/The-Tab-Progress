@@ -1,4 +1,4 @@
-import {memo} from 'react'
+import {memo, type MouseEvent} from 'react'
 import type {PropsWithChildren} from 'react'
 
 // styles
@@ -13,6 +13,7 @@ export enum ButtonTheme {
 interface ButtonProps extends PropsWithChildren{
     type?: 'submit' | 'reset' | 'button'
     theme?: ButtonTheme
+    onClick?: (e: MouseEvent<HTMLButtonElement>) => void
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -20,12 +21,16 @@ export const Button = memo((props: ButtonProps) => {
         children,
         type,
         theme,
+        onClick,
+        ...otherProps
     } = props
 
     return (
         <button
             type={type}
-            className={clsx([theme && styles[theme]])}
+            onClick={onClick}
+            className={clsx(styles.Button, [theme && styles[theme]])}
+            {...otherProps}
         >
             {children}
         </button>

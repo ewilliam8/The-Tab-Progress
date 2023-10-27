@@ -1,9 +1,17 @@
 @import "reset";
 @import "variables/variables";
+@import "themes/light";
+@import "themes/dark";
 
 .app {
     font: var(--font-m);
     background: var(--bg-color);
     color: var(--primary-color);
     min-height: 100vh;
+}
+
+.layout {
+    margin: 0 auto;
+    width: 100%;
+    max-width: var(--max-page-width);
 }
