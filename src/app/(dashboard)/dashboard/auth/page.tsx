@@ -1,6 +1,6 @@
 'use client'
 
-import {useCallback, useState} from 'react';
+import {useCallback, useState, type MouseEvent} from 'react';
 import {supabase} from '@/shared/config/supabaseClient';
 import styles from './AuthPage.module.scss'
 
@@ -13,7 +13,7 @@ export default function Auth() {
     const [pass, setPass] = useState('')
     const [error, setError] = useState('')
 
-    const onClickSignUp = useCallback(async (e) => {
+    const onClickSignUp = useCallback(async (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         const { data, error } = await supabase.auth.signUp({
             email: email,
@@ -22,7 +22,7 @@ export default function Auth() {
         if (error) setError(String(error))
     }, [email, pass])
 
-    const onClickSignIn = useCallback(async (e) => {
+    const onClickSignIn = useCallback(async (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         const { data, error } = await supabase.auth.signInWithPassword({
             email: email,
