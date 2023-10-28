@@ -1,11 +1,15 @@
-import {Button, ButtonTheme} from '@/shared/ui/Button';
+import {AppLink, AppLinkTheme} from '@/shared/ui/AppLink'
+import {Routes} from '@/shared/config/routes'
 
 export const Navbar = () => {
     return (
         <div>
-            <Button theme={ButtonTheme.OUTLINED}>
-                Sign Up
-            </Button>
+            <AppLink
+                to={Routes.AUTH}
+                theme={AppLinkTheme.OUTLINED}
+            >
+                Auth
+            </AppLink>
         </div>
     )
 }

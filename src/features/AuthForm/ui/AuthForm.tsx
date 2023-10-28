@@ -1,9 +1,13 @@
 'use client'
 
 import {useRouter} from 'next/navigation'
-import {type MouseEvent, useCallback, useState} from 'react'
 import {supabase} from '@/shared/config/supabaseClient'
 
+// Types
+import {Routes} from '@/shared/config/routes'
+import {type MouseEvent, useCallback, useState} from 'react'
+
+// Styles, Icons
 import styles from './AuthForm.module.css'
 import logIn from '../../../../public/assets/icons/log-in.svg'
 import cornerRight from '../../../../public/assets/icons/corner-right.svg'
@@ -23,13 +27,16 @@ export const AuthForm = () => {
         const { data, error } = await supabase.auth.signUp({
             email: email,
             password: pass,
+            options: {
+                emailRedirectTo: window.location + Routes.DASHBOARD,
+            },
         })
         if (error) {
             setError(String(error))
             return
         }
         if (data) {
-            router.push('/dashboard')
+            router.push(Routes.DASHBOARD)
         }
     }, [email, pass, router])
 
@@ -44,7 +51,7 @@ export const AuthForm = () => {
             return
         }
         if (data) {
-            router.push('/dashboard')
+            router.push(Routes.DASHBOARD)
         }
     }, [email, pass, router])
 
