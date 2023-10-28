@@ -12,6 +12,7 @@
     "lint:style:fix": "npx stylelint \"**/*.css\" --fix"
   },
   "dependencies": {
+    "@supabase/auth-helpers-nextjs": "^0.8.2",
     "@supabase/supabase-js": "^2.38.2",
     "@vercel/analytics": "^1.1.1",
     "clsx": "^2.0.0",
