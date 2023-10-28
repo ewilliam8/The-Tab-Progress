@@ -1,5 +1,5 @@
 import {memo} from 'react'
-import type {PropsWithChildren, MouseEvent, ReactNode} from 'react'
+import type {PropsWithChildren, MouseEvent} from 'react'
 
 // styles
 import {clsx} from 'clsx'
@@ -15,7 +15,7 @@ interface ButtonProps extends PropsWithChildren{
     type?: 'submit' | 'reset' | 'button'
     theme?: ButtonTheme
     onClick?: (e: MouseEvent<HTMLButtonElement>) => void
-    icon?: ReactNode
+    icon?: string
 }
 
 export const Button = memo((props: ButtonProps) => {
