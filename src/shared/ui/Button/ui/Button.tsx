@@ -1,9 +1,10 @@
-import {memo, type MouseEvent} from 'react'
-import type {PropsWithChildren} from 'react'
+import {memo} from 'react'
+import type {PropsWithChildren, MouseEvent} from 'react'
 
 // styles
 import {clsx} from 'clsx'
 import styles from './Button.module.scss'
+import Image from 'next/dist/client/legacy/image';
 
 export enum ButtonTheme {
     ROUNDED = 'rounded',
@@ -14,12 +15,14 @@ interface ButtonProps extends PropsWithChildren{
     type?: 'submit' | 'reset' | 'button'
     theme?: ButtonTheme
     onClick?: (e: MouseEvent<HTMLButtonElement>) => void
+    icon?: string
 }
 
 export const Button = memo((props: ButtonProps) => {
     const {
         children,
         type,
+        icon,
         theme,
         onClick,
         ...otherProps
@@ -32,9 +35,18 @@ export const Button = memo((props: ButtonProps) => {
             className={clsx(styles.Button, [theme && styles[theme]])}
             {...otherProps}
         >
+            {icon &&
+                <Image
+                    src={icon}
+                    height={15}
+                    width={15}
+                    className={styles.icon}
+                    alt={'icon'}
+                />
+            }
             {children}
         </button>
     )
 })
 
-Button.displayName = 'Button';
+Button.displayName = 'Button'

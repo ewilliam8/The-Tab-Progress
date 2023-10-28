@@ -1,3 +1,8 @@
+.InputWrp {
+    display: flex;
+    flex-direction: column;
+}
+
 .Input {
     padding: var(--default-padding);
 
@@ -8,5 +13,10 @@
 
     &:focus {
         outline: 1px solid var(--accent-color);
+        background-color: var(--bg-color);
     }
+}
+
+.label {
+    color: var(--primary-color);
 }

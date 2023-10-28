@@ -1,5 +1,6 @@
 .Button {
     padding: var(--default-padding);
+    position: relative;
 }
 
 .rounded {
@@ -17,4 +18,10 @@
     border: none;
     border-radius: 16px;
     text-decoration: none;
+}
+
+.icon {
+    position: absolute;
+    top: 2px !important;
+    margin-right: 4px !important;
 }
