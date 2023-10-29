@@ -38,7 +38,6 @@ export default function DashboardPage() {
             {dataList &&
                 dataList.map(elem => <p key={elem.id}>{elem.value}</p>)
             }
-            {/*{error && <p>{error}</p>}*/}
         </div>
     )
 }
