@@ -6,6 +6,7 @@ import {
 import {useRouter} from 'next/navigation'
 import {supabase} from '@/shared/config/supabaseClient'
 import {Routes} from '@/shared/config/routes'
+import {Session} from '@/shared/types/app'
 
 /*
  * useAuth - redirect unauthorized
@@ -15,6 +16,7 @@ import {Routes} from '@/shared/config/routes'
 export const useAuth = () => {
     const router = useRouter()
     const [isFirstTime, setIsFirstTime] = useState(true)
+    const [session, setSession] = useState<Session | null>(null)
 
     const getSession = useCallback(async () => {
         const {
@@ -23,6 +25,8 @@ export const useAuth = () => {
 
         if (!session)
             router.push(Routes.AUTH)
+
+        setSession(session)
     }, [router])
 
     useEffect(() => {
@@ -31,4 +35,8 @@ export const useAuth = () => {
             setIsFirstTime(false)
         }
     }, [getSession, isFirstTime])
+
+    return {
+        session,
+    }
 }
