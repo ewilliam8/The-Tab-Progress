@@ -6,7 +6,7 @@ import {insert} from '@/shared/api/insert'
 import {useCallback, useRef, useState} from 'react'
 import {Button} from '@/shared/ui/Button'
 import {selectAll} from '@/shared/api/selectAll'
-import {IDataSelect} from '@/shared/types/app';
+import {IDataSelect} from '@/shared/types/app'
 
 export default function DashboardPage() {
     const {session} = useAuth()
