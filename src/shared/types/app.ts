@@ -4,7 +4,9 @@ export interface Session {
     }
 }
 
-export interface IDataSelect {
+export interface IDataProgress {
     id: string
     value: number
+    user_id: string
+    created_at: string
 }

@@ -1,15 +1,22 @@
-import {AppLink, AppLinkTheme} from '@/shared/ui/AppLink'
-import {Routes} from '@/shared/config/routes'
+import styles from './Navbar.module.scss'
+
+import {logOut} from '@/shared/api/logOut'
+import {Button, ButtonTheme} from '@/shared/ui/Button'
 
 export const Navbar = () => {
+    const {onLogOut} = logOut()
+
     return (
-        <div>
-            <AppLink
-                to={Routes.AUTH}
-                theme={AppLinkTheme.OUTLINED}
-            >
-                Auth
-            </AppLink>
+        <div className={styles.Navbar}>
+            <div className={styles.items}>
+                The Tab Progress
+                <Button
+                    onClick={onLogOut}
+                    theme={ButtonTheme.CLEAR}
+                >
+                    Log Out
+                </Button>
+            </div>
         </div>
     )
 }

@@ -4,11 +4,12 @@ import type {PropsWithChildren, MouseEvent} from 'react'
 // styles
 import {clsx} from 'clsx'
 import styles from './Button.module.scss'
-import Image from 'next/dist/client/legacy/image';
+import Image from 'next/dist/client/legacy/image'
 
 export enum ButtonTheme {
     ROUNDED = 'rounded',
-    OUTLINED = 'outlined'
+    OUTLINED = 'outlined',
+    CLEAR = 'clear',
 }
 
 interface ButtonProps extends PropsWithChildren{

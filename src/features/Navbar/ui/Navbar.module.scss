@@ -1,3 +1,11 @@
 .Navbar {
+    width: 100%;
+    padding: var(--default-page-padding);
+    border-bottom: 1px solid var(--bg-color-secondary);
+}
 
+.items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

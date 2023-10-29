@@ -1,6 +1,15 @@
 .Button {
     padding: var(--default-padding);
     position: relative;
+    transition: background-color var(--animation) ease-in-out;
+    border-radius: var(--border-raduis);
+    outline: 1px solid var(--bg-color-secondary);
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        background: var(--bg-color-secondary);
+    }
 }
 
 .rounded {
@@ -13,11 +22,18 @@
 .outlined {
     color: var(--primary-color);
     background: none;
-    padding: 8px;
+    padding: var(--default-padding);
     outline: 1px solid var(--accent-color);
     border: none;
     border-radius: 16px;
     text-decoration: none;
+}
+
+.clear {
+    border: none;
+    outline: none;
+    background: none;
+    color: var(--primary-color);
 }
 
 .icon {

@@ -1,0 +1,11 @@
+.dashboard {
+    padding: var(--default-page-padding);
+}
+
+.chart {
+    height: 350px;
+    border: 1px solid var(--bg-color-secondary);
+    border-radius: var(--border-raduis);
+    padding: 16px;
+    margin-bottom: 20px;
+}
