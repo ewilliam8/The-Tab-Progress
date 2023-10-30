@@ -1,10 +1,12 @@
 import styles from './Dashboard.module.css'
 
+// React, Redux
 import {
-    useRef,
     useState,
     useCallback,
 } from 'react'
+import {useSelector} from 'react-redux'
+import {getSessionUserId} from '@/entities/Session'
 
 // Types
 import {IDataProgress} from '@/shared/types/app'
@@ -25,17 +27,14 @@ import {
     ResponsiveContainer
 } from 'recharts'
 
-
-// TODO make a slice for session
-// TODO transform data with timestamptz
 // TODO use TinyAreaChart
 
-export const Dashboard = (session: any) => {
-    const userId = useRef(session?.user?.id)
+export const Dashboard = () => {
+    const userId = useSelector(getSessionUserId)
     const [dataList, setDataList] = useState<IDataProgress[] | null>(null)
 
     const onInsert = useCallback(async () => {
-        await insert(Math.floor(Math.random() * 200), userId.current)
+        await insert(Math.floor(Math.random() * 200), userId)
     }, [userId])
 
     const onUpdateList = useCallback(async () => {

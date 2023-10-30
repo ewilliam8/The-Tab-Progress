@@ -1,10 +1,8 @@
-import type {ReactNode} from 'react';
-import {APP_DESC, APP_NAME} from '@/shared/consts/app';
+'use client'
 
-export const metadata = {
-    title: 'Dashboard: ' + APP_NAME,
-    description: 'Dashboard: ' + APP_DESC,
-}
+import type {ReactNode} from 'react'
+import {Provider} from 'react-redux'
+import {store} from '@/app/(dashboard)/providers/StoreProvider'
 
 export default function RootLayout({
     children,
@@ -12,8 +10,10 @@ export default function RootLayout({
   children: ReactNode
 }) {
     return (
-        <div className="layout app app_light_theme">
-            {children}
-        </div>
+        <Provider store={store}>
+            <div className="layout app app_light_theme">
+                {children}
+            </div>
+        </Provider>
     )
 }

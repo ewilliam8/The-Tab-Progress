@@ -8,14 +8,12 @@ import {Navbar} from '@/features/Navbar'
 import {Dashboard} from '@/features/Dashboard'
 
 export default function DashboardPage() {
-    const {session} = useAuth()
+    useAuth()
 
     return (
         <div>
             <Navbar />
-            <Dashboard
-                session={session}
-            />
+            <Dashboard />
         </div>
     )
 }

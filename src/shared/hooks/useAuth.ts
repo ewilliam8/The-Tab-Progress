@@ -8,6 +8,9 @@ import {supabase} from '@/shared/config/supabaseClient'
 import {Routes} from '@/shared/config/routes'
 import {Session} from '@/shared/types/app'
 
+import {useDispatch} from 'react-redux'
+import {sessionActions} from '@/entities/Session'
+
 /*
  * useAuth - redirect unauthorized
  * users to the registration page
@@ -15,6 +18,7 @@ import {Session} from '@/shared/types/app'
 
 export const useAuth = () => {
     const router = useRouter()
+    const dispatch = useDispatch()
     const [isFirstTime, setIsFirstTime] = useState(true)
     const [session, setSession] = useState<Session | null>(null)
 
@@ -27,7 +31,9 @@ export const useAuth = () => {
             router.push(Routes.AUTH)
 
         setSession(session)
-    }, [router])
+        const userId = session?.user?.id || ''
+        dispatch(sessionActions.setUserId(userId))
+    }, [dispatch, router])
 
     useEffect(() => {
         if (isFirstTime) {

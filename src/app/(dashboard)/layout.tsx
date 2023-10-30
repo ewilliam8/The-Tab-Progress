@@ -1,10 +1,12 @@
-import type {ReactNode} from 'react';
+import type {ReactNode} from 'react'
 import './styles/index.scss'
-
-import {APP_DESC, APP_NAME} from '@/shared/consts/app';
+import {
+    APP_DESC,
+    APP_NAME
+} from '@/shared/consts/app'
 
 export const metadata = {
-    title: 'Dashboard - ' + APP_NAME,
+    title: 'Dashboard: ' + APP_NAME,
     description: APP_DESC,
 }
 
