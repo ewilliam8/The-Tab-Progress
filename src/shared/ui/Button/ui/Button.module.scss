@@ -1,11 +1,14 @@
 .Button {
     padding: var(--default-padding);
-    position: relative;
-    transition: background-color var(--animation) ease-in-out;
     border-radius: var(--border-raduis);
     outline: 1px solid var(--bg-color-secondary);
     border: none;
     cursor: pointer;
+    min-height: 36px; // TODO create a var
+    align-items: center;
+    display: inline-flex;
+    gap: 4px;
+    transition: background-color var(--animation) ease-in-out;
 
     &:hover {
         background: var(--bg-color-secondary);
@@ -23,9 +26,9 @@
     color: var(--primary-color);
     background: none;
     padding: var(--default-padding);
-    outline: 1px solid var(--accent-color);
+    outline: 1px solid var(--bg-color-secondary);
     border: none;
-    border-radius: 16px;
+    border-radius: var(--border-raduis);
     text-decoration: none;
 }
 
@@ -34,10 +37,4 @@
     outline: none;
     background: none;
     color: var(--primary-color);
-}
-
-.icon {
-    position: absolute;
-    top: 2px !important;
-    margin-right: 4px !important;
 }

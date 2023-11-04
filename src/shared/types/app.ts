@@ -10,3 +10,5 @@ export interface IDataProgress {
     user_id: string
     created_at: string
 }
+
+export type IDataProgressType = IDataProgress[] | null

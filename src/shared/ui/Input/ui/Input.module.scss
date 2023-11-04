@@ -4,8 +4,8 @@
 }
 
 .Input {
+    min-height: 36px; // TODO create a var
     padding: var(--default-padding);
-
     border: none;
     border-radius: var(--border-raduis);
     outline: 1px solid var(--primary-color);

@@ -1,7 +1,7 @@
 import {supabase} from '@/shared/config/supabaseClient'
 
 export const insert = async (
-    value: number,
+    value: number | string,
     userId?: string
 ) => {
 
