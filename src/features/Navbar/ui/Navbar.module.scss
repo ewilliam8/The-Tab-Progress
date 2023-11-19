@@ -1,5 +1,5 @@
 .Navbar {
-    width: var(--max-page-width);
+    width: min(var(--max-page-width), 100%);
     padding: var(--default-page-padding);
     outline: 1px solid var(--bg-color-secondary);
     background-color: var(--bg-color);

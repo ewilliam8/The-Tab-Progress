@@ -37,7 +37,7 @@ export const Dashboard = () => {
                     <LineChart
                         data={dataList || []}
                         margin={{
-                            right: 30,
+                            right: 10,
                         }}
                     >
                         <CartesianGrid strokeDasharray="1 4" />
