@@ -3,9 +3,12 @@
 @import "themes/light";
 @import "themes/dark";
 
+body {
+    background: var(--bg-color);
+}
+
 .app {
     font: var(--font-m);
-    background: var(--bg-color);
     color: var(--primary-color);
     min-height: 100vh;
 }
@@ -14,4 +17,5 @@
     margin: 0 auto;
     width: 100%;
     max-width: var(--max-page-width);
+    outline: 1px solid var(--bg-color-secondary);
 }

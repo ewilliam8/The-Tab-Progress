@@ -1,10 +1,7 @@
 import styles from './Dashboard.module.css'
 
 // React, Redux
-import {
-    useState,
-    useCallback,
-} from 'react'
+import {useCallback, useLayoutEffect, useState,} from 'react'
 
 // Types
 import {IDataProgressType} from '@/shared/types/app'
@@ -13,16 +10,8 @@ import {IDataProgressType} from '@/shared/types/app'
 import {selectAll} from '@/shared/api/selectAll'
 
 // Components
-import {Button} from '@/shared/ui/Button'
-import {
-    Line,
-    YAxis,
-    XAxis,
-    Tooltip,
-    LineChart,
-    CartesianGrid,
-    ResponsiveContainer
-} from 'recharts'
+import {Button, ButtonTheme} from '@/shared/ui/Button'
+import {CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from 'recharts'
 import {ProgressList} from '@/widgets/ProgressList'
 
 // TODO use TinyAreaChart
@@ -34,6 +23,10 @@ export const Dashboard = () => {
         const {data: dataSelect} = await selectAll()
         setDataList(dataSelect)
     }, [])
+
+    useLayoutEffect(() => {
+        onUpdateList()
+    }, [onUpdateList])
 
     return (
         <div className={styles.dashboard}>
@@ -58,8 +51,9 @@ export const Dashboard = () => {
 
             <Button
                 onClick={onUpdateList}
+                theme={ButtonTheme.OUTLINED}
             >
-                update list fn()
+                Update list
             </Button>
             <ProgressList
                 slice={7}

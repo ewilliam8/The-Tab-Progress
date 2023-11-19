@@ -38,3 +38,10 @@
     background: none;
     color: var(--primary-color);
 }
+
+.icon {
+    img, svg {
+        stroke: var(--accent-color);
+        color: var(--accent-color);
+    }
+}

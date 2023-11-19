@@ -7,7 +7,7 @@ export const Navbar = () => {
     const {onLogOut} = logOut()
 
     return (
-        <div className={styles.Navbar}>
+        <header className={styles.Navbar}>
             <div className={styles.items}>
                 The Tab Progress
                 <Button
@@ -17,6 +17,6 @@ export const Navbar = () => {
                     Log Out
                 </Button>
             </div>
-        </div>
+        </header>
     )
 }

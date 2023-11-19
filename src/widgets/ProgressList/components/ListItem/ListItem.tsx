@@ -6,7 +6,7 @@ import {deleteItem} from '@/shared/api/deleteItem'
 // Types
 import {IDataProgress} from '@/shared/types/app'
 
-// Styles and Imgs
+// Styles and Images
 import styles from './ListItem.module.scss'
 import Pencil from '../../../../../public/assets/icons/pencil.svg'
 import Trash from '../../../../../public/assets/icons/trash.svg'
@@ -42,20 +42,20 @@ export const ListItem = (props: ListItemProps) => {
                 </span>
                 {created_at}
             </div>
-            <div>
-                {isEditable &&
+            {isEditable &&
+                <div className={styles.control}>
                     <Button
-                        icon={Pencil}
+                        icon={<Pencil width={14} height={14} />}
                         onClick={onEdit}
                         theme={ButtonTheme.OUTLINED}
                     />
-                }
-                <Button
-                    icon={Trash}
-                    onClick={onDelete}
-                    theme={ButtonTheme.OUTLINED}
-                />
-            </div>
+                    <Button
+                        icon={<Trash width={14} height={14} />}
+                        onClick={onDelete}
+                        theme={ButtonTheme.OUTLINED}
+                    />
+                </div>
+            }
         </div>
     )
 }

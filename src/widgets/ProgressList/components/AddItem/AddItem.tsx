@@ -10,7 +10,7 @@ import {insert} from '@/shared/api/insert'
 
 // Components
 import {Input} from '@/shared/ui/Input'
-import {Button} from '@/shared/ui/Button'
+import {Button, ButtonTheme} from '@/shared/ui/Button'
 
 export const AddItem = () => {
     const userId = useSelector(getSessionUserId)
@@ -27,7 +27,8 @@ export const AddItem = () => {
                 onChange={setN}
             />
             <Button
-                icon={Plus}
+                theme={ButtonTheme.OUTLINED}
+                icon={<Plus width={14} height={14} />}
                 onClick={onInsert}
             />
         </div>

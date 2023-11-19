@@ -9,8 +9,8 @@ import {type MouseEvent, useCallback, useState} from 'react'
 
 // Styles, Icons
 import styles from './AuthForm.module.css'
-import logIn from '../../../../public/assets/icons/log-in.svg'
-import cornerRight from '../../../../public/assets/icons/corner-right.svg'
+import LogIn from '../../../../public/assets/icons/log-in.svg'
+import CornerRight from '../../../../public/assets/icons/corner-right.svg'
 
 // Components
 import {Input} from '@/shared/ui/Input'
@@ -74,14 +74,14 @@ export const AuthForm = () => {
             <div className={styles.buttons}>
                 <Button
                     type='submit'
-                    icon={logIn}
+                    icon={<LogIn width={14} height={14} />}
                     onClick={onClickSignIn}
                 >
                     Sign In
                 </Button>
                 <Button
                     type='submit'
-                    icon={cornerRight}
+                    icon={<CornerRight width={14} height={14} />}
                     onClick={onClickSignUp}
                 >
                     Sign Up

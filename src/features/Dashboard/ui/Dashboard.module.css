@@ -1,5 +1,6 @@
 .dashboard {
     padding: var(--default-page-padding);
+    padding-top: calc(var(--navbar-height) + 26px);
 }
 
 .chart {

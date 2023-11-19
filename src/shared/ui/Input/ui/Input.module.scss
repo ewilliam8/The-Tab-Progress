@@ -8,12 +8,15 @@
     padding: var(--default-padding);
     border: none;
     border-radius: var(--border-raduis);
-    outline: 1px solid var(--primary-color);
+    outline: 1px solid var(--bg-color-secondary);
     background-color: var(--bg-color);
+    color: var(--primary-color);
+    transition: var(--animation) all ease-in-out;
 
     &:focus {
         outline: 1px solid var(--accent-color);
         background-color: var(--bg-color);
+        box-shadow: 0 0 3px var(--accent-color);
     }
 }
 

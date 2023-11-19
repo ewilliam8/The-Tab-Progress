@@ -11,7 +11,7 @@ export default function RootLayout({
 }) {
     return (
         <Provider store={store}>
-            <div className="layout app app_light_theme">
+            <div className="layout app app_dark_theme">
                 {children}
             </div>
         </Provider>
