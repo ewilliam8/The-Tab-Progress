@@ -19,3 +19,25 @@ body {
     max-width: var(--max-page-width);
     outline: 1px solid var(--bg-color-secondary);
 }
+
+/* ===== Scrollbar ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: var(--bg-color-secondary);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--bg-color-secondary);
+    border-radius: var(--border-radius);
+}
+/* ===== Scrollbar ===== */

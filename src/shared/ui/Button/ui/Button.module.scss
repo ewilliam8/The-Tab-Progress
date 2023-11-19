@@ -1,6 +1,6 @@
 .Button {
     padding: var(--default-padding);
-    border-radius: var(--border-raduis);
+    border-radius: var(--border-radius);
     outline: 1px solid var(--bg-color-secondary);
     border: none;
     cursor: pointer;
@@ -18,7 +18,7 @@
 .rounded {
     outline: none;
     border: none;
-    border-radius: var(--border-raduis);
+    border-radius: var(--border-radius);
     color: var(--primary-color);
 }
 
@@ -28,7 +28,7 @@
     padding: var(--default-padding);
     outline: 1px solid var(--bg-color-secondary);
     border: none;
-    border-radius: var(--border-raduis);
+    border-radius: var(--border-radius);
     text-decoration: none;
 }
 

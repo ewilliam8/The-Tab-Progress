@@ -1,5 +1,5 @@
-import React, {memo} from 'react';
-import type {PropsWithChildren} from 'react';
+import React, {memo} from 'react'
+import type {PropsWithChildren} from 'react'
 
 import styles from './Box.module.scss'
 import { clsx } from 'clsx'
@@ -28,4 +28,4 @@ export const Box = memo((props: BoxProps) => {
     )
 })
 
-Box.displayName = 'Box';
+Box.displayName = 'Box'
