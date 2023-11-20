@@ -13,8 +13,8 @@ import LogIn from '../../../../public/assets/icons/log-in.svg'
 import CornerRight from '../../../../public/assets/icons/corner-right.svg'
 
 // Components
-import {Input} from '@/shared/ui/Input'
 import {Button} from '@/shared/ui/Button'
+import {Input} from '@/shared/ui/Input/Input'
 
 export const AuthForm = () => {
     const router = useRouter()

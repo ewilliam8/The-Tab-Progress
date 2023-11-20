@@ -1,7 +1,7 @@
 import styles from './Dashboard.module.css'
 
 // React, Redux
-import {useCallback, useLayoutEffect, useState,} from 'react'
+import {useCallback, useLayoutEffect, useState} from 'react'
 
 // Types
 import {IDataProgressType} from '@/shared/types/app'
@@ -10,9 +10,9 @@ import {IDataProgressType} from '@/shared/types/app'
 import {selectAll} from '@/shared/api/selectAll'
 
 // Components
-import {Button, ButtonTheme} from '@/shared/ui/Button'
 import {ProgressList} from '@/widgets/ProgressList'
-import {Chart} from '@/features/Dashboard/components/Chart';
+import {Button, ButtonTheme} from '@/shared/ui/Button'
+import {Chart} from '@/features/Dashboard/components/Chart'
 
 
 export const Dashboard = () => {

@@ -9,7 +9,7 @@ import Plus from '../../../../../public/assets/icons/plus.svg'
 import {insert} from '@/shared/api/insert'
 
 // Components
-import {Input} from '@/shared/ui/Input'
+import {Input} from '@/shared/ui/Input/Input'
 import {Button, ButtonTheme} from '@/shared/ui/Button'
 
 export const AddItem = () => {
