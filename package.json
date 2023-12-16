@@ -12,12 +12,23 @@
     "recharts": "2.9.0"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^7.6.5",
+    "@storybook/addon-essentials": "^7.6.5",
+    "@storybook/addon-interactions": "^7.6.5",
+    "@storybook/addon-links": "^7.6.5",
+    "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/blocks": "^7.6.5",
+    "@storybook/nextjs": "^7.6.5",
+    "@storybook/react": "^7.6.5",
+    "@storybook/test": "^7.6.5",
     "@types/node": "20",
     "@types/react": "18",
     "@types/react-dom": "18",
     "eslint": "8.22.0",
     "eslint-config-next": "13.5.6",
+    "eslint-plugin-storybook": "^0.6.15",
     "sass": "1.69.4",
+    "storybook": "^7.6.5",
     "stylelint": "15.11.0",
     "stylelint-config-standard": "34.0.0",
     "syncpack": "11.2.1",
@@ -26,6 +37,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "build-storybook": "storybook build",
     "dev": "next dev",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
@@ -33,6 +45,7 @@
     "lint:style:fix": "npx stylelint \"**/*.css\" --fix",
     "packages:fix": "syncpack fix-mismatches && syncpack set-semver-ranges",
     "packages:format": "syncpack format",
-    "start": "next start"
+    "start": "next start",
+    "storybook": "storybook dev -p 6006"
   }
 }
