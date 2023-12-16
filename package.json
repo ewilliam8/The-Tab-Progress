@@ -1,38 +1,38 @@
 {
   "name": "the-tab-progress",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "dependencies": {
+    "@supabase/auth-helpers-nextjs": "0.8.2",
+    "@supabase/supabase-js": "2.38.2",
+    "@vercel/analytics": "1.1.1",
+    "clsx": "2.0.0",
+    "next": "13.5.6",
+    "react": "18",
+    "react-dom": "18",
+    "recharts": "2.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "20",
+    "@types/react": "18",
+    "@types/react-dom": "18",
+    "eslint": "8.22.0",
+    "eslint-config-next": "13.5.6",
+    "sass": "1.69.4",
+    "stylelint": "15.11.0",
+    "stylelint-config-standard": "34.0.0",
+    "syncpack": "11.2.1",
+    "typescript": "5"
+  },
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "lint:style": "npx stylelint \"**/*.css\"",
-    "lint:style:fix": "npx stylelint \"**/*.css\" --fix"
-  },
-  "dependencies": {
-    "@supabase/supabase-js": "^2.38.2",
-    "@vercel/analytics": "^1.1.1",
-    "@reduxjs/toolkit": "^1.9.7",
-    "@supabase/auth-helpers-nextjs": "^0.8.2",
-    "clsx": "^2.0.0",
-    "next": "13.5.6",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-redux": "^8.1.3",
-    "recharts": "^2.9.0"
-  },
-  "devDependencies": {
-    "@svgr/webpack": "^8.1.0",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8.22.0",
-    "eslint-config-next": "13.5.6",
-    "sass": "^1.69.4",
-    "stylelint": "^15.11.0",
-    "stylelint-config-standard": "^34.0.0",
-    "typescript": "^5"
+    "lint:style:fix": "npx stylelint \"**/*.css\" --fix",
+    "packages:fix": "syncpack fix-mismatches && syncpack set-semver-ranges",
+    "packages:format": "syncpack format",
+    "start": "next start"
   }
 }
