@@ -1,7 +1,7 @@
 'use client'
 
 // Hooks
-import {useAuth} from '@/shared/hooks/useAuth'
+import {useAuth} from '@/entities/Session/api/useAuth'
 
 // Components
 import {Navbar} from '@/features/Navbar'

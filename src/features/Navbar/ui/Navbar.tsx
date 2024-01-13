@@ -1,15 +1,15 @@
 import styles from './Navbar.module.scss'
-
-import {logOut} from '@/shared/api/logOut'
+import {useLogout} from '@/entities/Session/api/useLogout'
 import {Button, ButtonTheme} from '@/shared/ui/Button'
+import {APP_NAME} from "@/shared/consts/app";
 
 export const Navbar = () => {
-    const {onLogOut} = logOut()
+    const {onLogOut} = useLogout()
 
     return (
         <header className={styles.Navbar}>
             <div className={styles.items}>
-                The Tab Progress
+                {APP_NAME}
                 <Button
                     onClick={onLogOut}
                     theme={ButtonTheme.CLEAR}

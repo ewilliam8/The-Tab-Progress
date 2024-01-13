@@ -12,7 +12,6 @@ export const sessionSlice = createSlice({
     initialState,
     reducers: {
         setUserId: (state, action) => {
-            // PayloadAction<string> - Unresolved variable payload
             state.user.id = action.payload
         }
     }
