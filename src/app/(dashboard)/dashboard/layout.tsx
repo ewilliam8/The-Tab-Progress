@@ -3,17 +3,20 @@
 import type {ReactNode} from 'react'
 import {Provider} from 'react-redux'
 import {store} from '@/app/(dashboard)/providers/StoreProvider'
+import {AuthProvider} from '@/app/(dashboard)/providers/AuthProvider'
 
-export default function RootLayout({
-    children,
-}: {
-  children: ReactNode
-}) {
+type RootLayoutProps = {
+    children: ReactNode
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <Provider store={store}>
-            <div className="layout app_dark_theme">
-                {children}
-            </div>
+            <AuthProvider>
+                <div className="layout app_dark_theme">
+                    {children}
+                </div>
+            </AuthProvider>
         </Provider>
     )
 }

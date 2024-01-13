@@ -1,14 +1,12 @@
 'use client'
 
-// Components
 import {Navbar} from '@/features/Navbar'
-import {Dashboard} from '@/features/Dashboard'
 
-export default function DashboardPage() {
+export default function InvestmentPage() {
     return (
         <div>
             <Navbar />
-            <Dashboard />
+            Investments Page
         </div>
     )
 }

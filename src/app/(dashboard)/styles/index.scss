@@ -18,6 +18,7 @@ body {
     width: 100%;
     max-width: var(--max-page-width);
     outline: 1px solid var(--bg-color-secondary);
+    padding-top: calc(var(--navbar-height) + 26px);
 }
 
 /* ===== Scrollbar ===== */

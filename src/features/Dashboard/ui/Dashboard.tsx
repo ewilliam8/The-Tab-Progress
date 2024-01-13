@@ -14,7 +14,6 @@ import {ProgressList} from '@/widgets/ProgressList'
 import {Button, ButtonTheme} from '@/shared/ui/Button'
 import {Chart} from '@/features/Dashboard/components/Chart'
 
-
 export const Dashboard = () => {
     const [dataList, setDataList] = useState<IDataProgressType>(null)
 

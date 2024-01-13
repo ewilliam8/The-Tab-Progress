@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect } from 'react'
 import {Button} from '@/shared/ui/Button'
 
 export default function Error({
@@ -10,9 +9,7 @@ export default function Error({
     error: Error & { digest?: string }
     reset: () => void
 }) {
-    useEffect(() => {
-        console.error(error)
-    }, [error])
+    error && console.error(error)
 
     return (
         <div>
