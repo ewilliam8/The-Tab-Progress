@@ -10,4 +10,4 @@ export type {SessionSchema} from './model/types/session'
 // Selectors
 export {
     getSessionUserId,
-} from './model/selectors/getSessionUserId/getSessionUserId'
+} from './model/selectors/getSessionUserId'
