@@ -1,6 +1,6 @@
 import styles from './Navbar.module.scss'
 import { useLogout } from '@/entities/Session/api/useLogout'
-import { Button, ButtonTheme } from '@/shared/ui/Button'
+import { Button } from '@/shared/ui/Button'
 import { APP_NAME } from '@/shared/consts/app';
 
 export const Navbar = () => {
@@ -12,7 +12,7 @@ export const Navbar = () => {
                 {APP_NAME}
                 <Button
                     onClick={onLogOut}
-                    theme={ButtonTheme.CLEAR}
+                    variant={'secondary'}
                 >
                     Log Out
                 </Button>
