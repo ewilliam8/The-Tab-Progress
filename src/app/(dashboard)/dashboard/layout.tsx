@@ -1,9 +1,9 @@
 'use client'
 
-import type {ReactNode} from 'react'
-import {Provider} from 'react-redux'
-import {store} from '@/app/(dashboard)/providers/StoreProvider'
-import {AuthProvider} from '@/app/(dashboard)/providers/AuthProvider'
+import type { ReactNode } from 'react'
+import { Provider } from 'react-redux'
+import { store } from '@/app/(dashboard)/providers/StoreProvider'
+import { AuthProvider } from '@/app/(dashboard)/providers/AuthProvider'
 
 type RootLayoutProps = {
     children: ReactNode

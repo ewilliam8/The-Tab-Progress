@@ -1,4 +1,4 @@
-import {memo} from 'react'
+import { memo } from 'react'
 import styles from './Chart.module.scss'
 
 import {
@@ -10,14 +10,14 @@ import {
     CartesianGrid,
     ResponsiveContainer
 } from 'recharts'
-import {IDataProgressType} from '@/shared/types/app'
+import { IDataProgressType } from '@/shared/types/app'
 
 interface ChartProps {
     dataList: IDataProgressType
 }
 
 // TODO to widgets
-export const Chart = memo(({dataList}: ChartProps) => {
+export const Chart = memo(({ dataList }: ChartProps) => {
     return (
         <div className={styles.chart}>
             <ResponsiveContainer width="100%" height="100%">

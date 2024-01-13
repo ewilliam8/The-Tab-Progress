@@ -1,4 +1,4 @@
-import {supabase} from '@/shared/config/supabaseClient'
+import { supabase } from '@/shared/config/supabaseClient'
 
 export const deleteItem = async (
     id: number | string

@@ -1,10 +1,10 @@
-import {useCallback} from 'react'
+import { useCallback } from 'react'
 
 // Api
-import {deleteItem} from '@/shared/api/deleteItem'
+import { deleteItem } from '@/shared/api/deleteItem'
 
 // Types
-import {IDataProgress} from '@/shared/types/app'
+import { IDataProgress } from '@/shared/types/app'
 
 // Styles and Images
 import styles from './ListItem.module.scss'
@@ -12,7 +12,7 @@ import Pencil from '../../../../../public/assets/icons/pencil.svg'
 import Trash from '../../../../../public/assets/icons/trash.svg'
 
 // Components
-import {Button, ButtonTheme} from '@/shared/ui/Button'
+import { Button, ButtonTheme } from '@/shared/ui/Button'
 
 interface ListItemProps extends IDataProgress{
     isEditable?: boolean

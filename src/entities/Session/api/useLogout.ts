@@ -1,5 +1,5 @@
-import {supabase} from '@/shared/config/supabaseClient'
-import {Routes} from '@/shared/config/routes'
+import { supabase } from '@/shared/config/supabaseClient'
+import { Routes } from '@/shared/config/routes'
 
 export const useLogout = () => {
 

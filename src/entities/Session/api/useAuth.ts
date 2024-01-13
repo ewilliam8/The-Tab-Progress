@@ -3,12 +3,12 @@ import {
     useEffect,
     useCallback,
 } from 'react'
-import {useRouter} from 'next/navigation'
-import {supabase} from '@/shared/config/supabaseClient'
-import {Routes} from '@/shared/config/routes'
-import {Session} from '@/shared/types/app'
-import {sessionActions} from '@/entities/Session'
-import {useAppDispatch} from '@/shared/hooks/useAppDispatch';
+import { useRouter } from 'next/navigation'
+import { supabase } from '@/shared/config/supabaseClient'
+import { Routes } from '@/shared/config/routes'
+import { Session } from '@/shared/types/app'
+import { sessionActions } from '@/entities/Session'
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 
 export const useAuth = () => {
     const router = useRouter()

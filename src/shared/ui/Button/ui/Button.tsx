@@ -1,4 +1,4 @@
-import {memo} from 'react'
+import { memo } from 'react'
 import type {
     ReactNode,
     MouseEvent,
@@ -6,7 +6,7 @@ import type {
 } from 'react'
 
 // styles
-import {clsx} from 'clsx'
+import { clsx } from 'clsx'
 import styles from './Button.module.scss'
 
 export enum ButtonTheme {

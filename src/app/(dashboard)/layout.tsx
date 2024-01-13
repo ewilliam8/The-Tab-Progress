@@ -1,10 +1,10 @@
-import type {ReactNode} from 'react'
+import type { ReactNode } from 'react'
 import './styles/index.scss'
 import {
     APP_DESC,
     APP_NAME
 } from '@/shared/consts/app'
-import {Analytics} from '@vercel/analytics/react'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata = {
     title: 'Dashboard: ' + APP_NAME,

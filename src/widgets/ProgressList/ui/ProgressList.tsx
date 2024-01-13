@@ -2,11 +2,11 @@
 import styles from './ProgressList.module.scss'
 
 // Types
-import {IDataProgressType} from '@/shared/types/app'
+import { IDataProgressType } from '@/shared/types/app'
 
 // Components
-import {AddItem} from '../components/AddItem/AddItem'
-import {ListItem} from '../components/ListItem/ListItem'
+import { AddItem } from '../components/AddItem/AddItem'
+import { ListItem } from '../components/ListItem/ListItem'
 
 interface ProgressListProps {
     list: IDataProgressType

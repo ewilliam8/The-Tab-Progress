@@ -1,5 +1,5 @@
-import {createSlice} from '@reduxjs/toolkit'
-import {SessionSchema} from '../../model/types/session'
+import { createSlice } from '@reduxjs/toolkit'
+import { SessionSchema } from '../../model/types/session'
 
 const initialState: SessionSchema = {
     user: {

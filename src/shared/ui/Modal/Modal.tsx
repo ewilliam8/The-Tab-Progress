@@ -1,9 +1,9 @@
-import {clsx} from 'clsx'
-import {useEffect, useState} from 'react'
+import { clsx } from 'clsx'
+import { useEffect, useState } from 'react'
 import styles from './Modal.module.scss'
 
 // Components
-import {Portal} from '@/shared/ui/Portal/Portal'
+import { Portal } from '@/shared/ui/Portal/Portal'
 
 interface ModalProps {
     lazy?: boolean

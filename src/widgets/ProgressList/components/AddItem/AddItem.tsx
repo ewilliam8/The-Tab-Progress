@@ -1,15 +1,15 @@
-import {useSelector} from 'react-redux'
-import {useCallback, useState} from 'react'
+import { useSelector } from 'react-redux'
+import { useCallback, useState } from 'react'
 import styles from './AddItem.module.scss'
 import Plus from '../../../../../public/assets/icons/plus.svg'
-import {getSessionUserId} from '@/entities/Session';
+import { getSessionUserId } from '@/entities/Session';
 
 // Api
-import {insert} from '@/shared/api/insert'
+import { insert } from '@/shared/api/insert'
 
 // Components
-import {Input} from '@/shared/ui/Input/Input'
-import {Button, ButtonTheme} from '@/shared/ui/Button'
+import { Input } from '@/shared/ui/Input/Input'
+import { Button, ButtonTheme } from '@/shared/ui/Button'
 
 export const AddItem = () => {
     const userId = useSelector(getSessionUserId)

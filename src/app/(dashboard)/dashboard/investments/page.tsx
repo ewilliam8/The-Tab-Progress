@@ -1,6 +1,6 @@
 'use client'
 
-import {Navbar} from '@/features/Navbar'
+import { Navbar } from '@/features/Navbar'
 
 export default function InvestmentPage() {
     return (

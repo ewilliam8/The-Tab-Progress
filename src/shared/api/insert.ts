@@ -1,13 +1,13 @@
-import {supabase} from '@/shared/config/supabaseClient'
+import { supabase } from '@/shared/config/supabaseClient'
 
 export const insert = async (
     value: number | string,
     userId?: string
 ) => {
 
-    const {data, error} = await supabase
+    const { data, error } = await supabase
         .from('progress')
-        .insert({value, user_id: userId})
+        .insert({ value, user_id: userId })
 
     return {
         data,
