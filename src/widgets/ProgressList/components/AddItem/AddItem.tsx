@@ -2,7 +2,7 @@ import {useSelector} from 'react-redux'
 import {useCallback, useState} from 'react'
 import styles from './AddItem.module.scss'
 import Plus from '../../../../../public/assets/icons/plus.svg'
-import {getSessionUserId} from "@/entities/Session";
+import {getSessionUserId} from '@/entities/Session';
 
 // Api
 import {insert} from '@/shared/api/insert'
