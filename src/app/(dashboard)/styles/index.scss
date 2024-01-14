@@ -1,15 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import "reset";
-@import "variables/variables";
-@import "themes/light";
-@import "themes/dark";
+@import "variables";
+@import "../../globals.css";
 
 body {
-    background: var(--bg-color);
+    background: var(--background);
 }
 
 .app {
     font: var(--font-m);
-    color: var(--primary-color);
     min-height: 100vh;
 }
 
@@ -17,7 +19,7 @@ body {
     margin: 0 auto;
     width: 100%;
     max-width: var(--max-page-width);
-    outline: 1px solid var(--bg-color-secondary);
+    outline: 1px solid var(--secondary);
     padding-top: calc(var(--navbar-height) + 26px);
 }
 
@@ -25,7 +27,7 @@ body {
 /* Firefox */
 * {
     scrollbar-width: auto;
-    scrollbar-color: var(--bg-color-secondary);
+    scrollbar-color: var(--secondary);
 }
 
 /* Chrome, Edge, and Safari */
@@ -34,11 +36,11 @@ body {
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--bg-color);
+    background: var(--background);
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--bg-color-secondary);
-    border-radius: var(--border-radius);
+    background-color: var(--secondary);
+    border-radius: var(--radius);
 }
 /* ===== Scrollbar ===== */

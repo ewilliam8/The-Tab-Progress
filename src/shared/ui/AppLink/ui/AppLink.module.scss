@@ -1,26 +1,26 @@
 .outlined {
-    color: var(--primary-color);
+    color: var(--foreground);
     background: none;
     padding: 4px 16px;
-    outline: 1px solid var(--accent-color);
+    outline: 1px solid var(--accent);
     border: none;
     border-radius: 8px;
     text-decoration: none;
     transition: var(--animation);
 
     &:hover {
-        color: var(--bg-color);
-        background: var(--primary-color);
+        color: var(--background);
+        background: var(--foreground);
     }
 
     &:active {
-        color: var(--bg-color);
-        background: var(--secondary-color);
+        color: var(--background);
+        background: var(--secondary);
     }
 
     &:focus {
-        color: var(--bg-color);
-        background: var(--secondary-color);
-        outline: 2px solid var(--accent-color);
+        color: var(--background);
+        background: var(--secondary);
+        outline: 2px solid var(--accent);
     }
 }

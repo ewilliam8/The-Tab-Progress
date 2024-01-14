@@ -12,7 +12,7 @@ import Pencil from '../../../../../public/assets/icons/pencil.svg'
 import Trash from '../../../../../public/assets/icons/trash.svg'
 
 // Components
-import { Button, ButtonTheme } from '@/shared/ui/Button'
+import { Button } from '@/shared/ui/Button'
 
 interface ListItemProps extends IDataProgress{
     isEditable?: boolean
@@ -30,10 +30,6 @@ export const ListItem = (props: ListItemProps) => {
         await deleteItem(id)
     }, [id])
 
-    const onEdit = useCallback(() => {
-        // TODO Add modal for edit
-    }, [])
-
     return (
         <div className={styles.ListItem}>
             <div className={styles.info}>
@@ -45,15 +41,18 @@ export const ListItem = (props: ListItemProps) => {
             {isEditable &&
                 <div className={styles.control}>
                     <Button
-                        icon={<Pencil width={14} height={14} />}
-                        onClick={onEdit}
-                        theme={ButtonTheme.OUTLINED}
-                    />
+                        variant={'secondary'}
+                        size={'icon'}
+                    >
+                        <Pencil width={14} height={14} />
+                    </Button>
                     <Button
-                        icon={<Trash width={14} height={14} />}
                         onClick={onDelete}
-                        theme={ButtonTheme.OUTLINED}
-                    />
+                        variant={'secondary'}
+                        size={'icon'}
+                    >
+                        <Trash width={14} height={14} />
+                    </Button>
                 </div>
             }
         </div>

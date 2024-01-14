@@ -74,17 +74,21 @@ export const AuthForm = () => {
             <div className={styles.buttons}>
                 <Button
                     type='submit'
-                    icon={<LogIn width={14} height={14} />}
                     onClick={onClickSignIn}
                 >
-                    Sign In
+                    <LogIn width={14} height={14} />
+                    <span className="ml-2">
+                        Sign In
+                    </span>
                 </Button>
                 <Button
                     type='submit'
-                    icon={<CornerRight width={14} height={14} />}
                     onClick={onClickSignUp}
                 >
-                    Sign Up
+                    <CornerRight width={14} height={14} />
+                    <span className="ml-2">
+                        Sign Up
+                    </span>
                 </Button>
             </div>
             {error

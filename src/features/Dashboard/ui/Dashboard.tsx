@@ -11,7 +11,7 @@ import { selectAll } from '@/shared/api/selectAll'
 
 // Components
 import { ProgressList } from '@/widgets/ProgressList'
-import { Button, ButtonTheme } from '@/shared/ui/Button'
+import { Button } from '@/shared/ui/Button'
 import { Chart } from '@/features/Dashboard/components/Chart'
 
 export const Dashboard = () => {
@@ -34,7 +34,7 @@ export const Dashboard = () => {
 
             <Button
                 onClick={onUpdateList}
-                theme={ButtonTheme.OUTLINED}
+                variant={'secondary'}
             >
                 Update list
             </Button>
