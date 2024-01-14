@@ -4,6 +4,7 @@ import type { ReactNode } from 'react'
 import { Provider } from 'react-redux'
 import { store } from '@/app/(dashboard)/providers/StoreProvider'
 import { AuthProvider } from '@/app/(dashboard)/providers/AuthProvider'
+import { Header } from '@/features/Navbar'
 
 type RootLayoutProps = {
     children: ReactNode
@@ -14,6 +15,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Provider store={store}>
             <AuthProvider>
                 <div className="layout app_dark_theme">
+                    <Header />
                     {children}
                 </div>
             </AuthProvider>
