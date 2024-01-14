@@ -17,7 +17,7 @@ export const Navbar = () => {
 
                 <Button
                     onClick={onLogOut}
-                    variant={'secondary'}
+                    variant={'ghost'}
                 >
                     Log Out
                 </Button>

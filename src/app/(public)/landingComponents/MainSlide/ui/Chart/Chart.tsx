@@ -49,11 +49,11 @@ export const Chart = () => {
                     >
                         <defs>
                             <linearGradient id="colorUv" x1="1" y1="1" x2="0" y2="0">
-                                <stop offset="25%" stopColor="var(--bg-color)" stopOpacity={0.5} />
-                                <stop offset="95%" stopColor="var(--primary-color)" stopOpacity={0.5} />
+                                <stop offset="25%" stopColor="var(--background)" stopOpacity={0.5} />
+                                <stop offset="95%" stopColor="var(--foreground)" stopOpacity={0.5} />
                             </linearGradient>
                         </defs>
-                        <Area type="monotone" dataKey="uv" stroke="var(--accent-color)" fill="url(#colorUv)"/>
+                        <Area type="monotone" dataKey="uv" stroke="var(--accent)" fill="url(#colorUv)"/>
                     </AreaChart>)
                 : null
             }

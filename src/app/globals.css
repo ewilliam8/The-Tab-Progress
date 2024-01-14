@@ -1,68 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato:wght@400;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: #fafafa;
+    --foreground: #00091f;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: #ffffff;
+    --card-foreground: #020817;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: #ffffff;
+    --popover-foreground: #020817;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: #0f172a;
+    --primary-foreground: #f8fafc;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: #e3e3e3;
+    --secondary-foreground: #000511;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: #f1f5f9;
+    --muted-foreground: #64748b;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: #f1f5f9;
+    --accent-foreground: #0f172a;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: #ef4444;
+    --destructive-foreground: #f8fafc;
 
     --border: rgb(0 0 0 / 45%);
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --input: #e2e8f0;
+    --ring: #020817;
 
     --radius: 0.5rem;
+    --animation: 0.2s;
+    --gradient: radial-gradient(closest-side, rgba(0, 119, 255, 0.11), var(--background));
+
+    /* Sizes*/
+    --max-page-width: 1100px;
+    --header-max-height: 60px;
   }
 
   .dark {
     --background: #0f0f0f;
     --foreground: #fff;
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    --card: #09090b;
+    --card-foreground: #fafafa;
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: #09090b;
+    --popover-foreground: #fafafa;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
+    --primary: #fafafa;
+    --primary-foreground: #18181b;
 
     --secondary: #3d3d3d;
-    --secondary-foreground: #d9d9d9;
+    --secondary-foreground: #c5c5c5;
 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: #27272a;
+    --muted-foreground: #a1a1aa;
 
     --accent: #8884d8;
-    --accent-foreground: 0 0% 98%;
+    --accent-foreground: #fafafa;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: #7f1d1d;
+    --destructive-foreground: #fafafa;
 
     --border: rgb(0 0 0 / 45%);
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --input: #27272a;
+    --ring: #d4d4d8;
   }
 }
 

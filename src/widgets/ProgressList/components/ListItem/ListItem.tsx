@@ -30,10 +30,6 @@ export const ListItem = (props: ListItemProps) => {
         await deleteItem(id)
     }, [id])
 
-    const onEdit = useCallback(() => {
-        // TODO Add modal for edit
-    }, [])
-
     return (
         <div className={styles.ListItem}>
             <div className={styles.info}>
@@ -45,7 +41,6 @@ export const ListItem = (props: ListItemProps) => {
             {isEditable &&
                 <div className={styles.control}>
                     <Button
-                        onClick={onEdit}
                         variant={'secondary'}
                         size={'icon'}
                     >

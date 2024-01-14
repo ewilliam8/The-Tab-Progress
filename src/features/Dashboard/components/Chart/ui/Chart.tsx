@@ -29,19 +29,19 @@ export const Chart = memo(({ dataList }: ChartProps) => {
                 >
                     <defs>
                         <linearGradient id="colorUv" x1="1" y1="1" x2="1" y2="0">
-                            <stop offset="25%" stopColor="var(--bg-color)" stopOpacity={0.28} />
-                            <stop offset="95%" stopColor="var(--accent-color)" stopOpacity={0.28} />
+                            <stop offset="25%" stopColor="var(--background)" stopOpacity={0.28} />
+                            <stop offset="95%" stopColor="var(--accent)" stopOpacity={0.28} />
                         </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="1 4" />
                     <XAxis dataKey="created_at" />
                     <YAxis />
                     <Tooltip contentStyle={{
-                        backgroundColor: 'var(--bg-color)',
-                        borderRadius: 'var(--border-radius)',
-                        borderColor: 'var(--bg-color-secondary)'
+                        backgroundColor: 'var(--background)',
+                        borderRadius: 'var(--radius)',
+                        borderColor: 'var(--secondary)'
                     }} />
-                    <Area type="monotone" dataKey="value" stroke="var(--accent-color)" fill="url(#colorUv)"  />
+                    <Area type="monotone" dataKey="value" stroke="var(--accent)" fill="url(#colorUv)"  />
                 </AreaChart>
             </ResponsiveContainer>
         </div>
