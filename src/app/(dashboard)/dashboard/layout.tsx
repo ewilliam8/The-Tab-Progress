@@ -14,7 +14,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     return (
         <Provider store={store}>
             <AuthProvider>
-                <div className="layout app_dark_theme">
+                <div className="layout">
                     <Header />
                     {children}
                 </div>

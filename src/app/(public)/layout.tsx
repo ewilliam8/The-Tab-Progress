@@ -18,9 +18,9 @@ export default function RootLayout({
     children: ReactNode
 }) {
     return (
-        <html lang="en">
+        <html lang="en" className="app layout dark">
             <body className={inter.className}>
-                <main className="app">
+                <main>
                     {children}
                 </main>
             </body>

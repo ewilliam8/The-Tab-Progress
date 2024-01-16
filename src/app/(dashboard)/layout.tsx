@@ -5,6 +5,10 @@ import {
     APP_NAME
 } from '@/shared/consts/app'
 import { Analytics } from '@vercel/analytics/react'
+import { Inter } from 'next/font/google'
+import { clsx } from 'clsx';
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
     title: 'Dashboard: ' + APP_NAME,
@@ -18,7 +22,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className="app dark">{children}</body>
+            <body className={clsx('app dark', inter.className)}>{children}</body>
             <Analytics />
         </html>
     )
