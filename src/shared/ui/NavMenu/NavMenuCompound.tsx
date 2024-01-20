@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react'
-
 import { cn } from '@/shared/lib/utils'
 import {
     NavMenu,
@@ -11,12 +10,13 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
 } from './NavMenu'
-import { Routes } from '@/shared/config/routes'
 import { Button } from '@/shared/ui/Button'
 import { useLogout } from '@/entities/Session'
+import { Routes } from '@/shared/config/routes'
+import { navigation } from '@/shared/config/navigation'
 
 export function NavMenuCompound() {
-    const { onLogOut } = useLogout() // remove entity element
+    const { onLogOut } = useLogout()
 
     return (
         <NavMenu>
@@ -25,7 +25,11 @@ export function NavMenuCompound() {
                     <NavigationMenuTrigger>Menu</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="flex-row gap-2 p-2 md:w-[300px]">
-                            <ListItem href={Routes.DASHBOARD} title="Dashboard" />
+                            <ListItem href={navigation.DASHBOARD.path} className="flex" >
+                                {navigation.DASHBOARD.name}
+                                {navigation.DASHBOARD.icon}
+                            </ListItem>
+
                             <ListItem href={Routes.PROGRESS} title="Progress" />
                             <ListItem href={Routes.INVESTMENTS} title="Investments" />
                         </ul>
@@ -54,7 +58,7 @@ const ListItem = React.forwardRef<
                 <a
                     ref={ref}
                     className={cn(
-                        'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                        'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-secondary hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
                         className
                     )}
                     {...props}
