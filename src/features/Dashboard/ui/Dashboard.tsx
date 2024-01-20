@@ -2,17 +2,11 @@ import styles from './Dashboard.module.css'
 
 // React, Redux
 import { useCallback, useLayoutEffect, useState } from 'react'
-
-// Types
 import { IDataProgressType } from '@/shared/types/app'
-
-// Hooks and Api
 import { selectAll } from '@/shared/api/selectAll'
-
-// Components
 import { ProgressList } from '@/widgets/ProgressList'
-import { Button } from '@/shared/ui/Button'
 import { Chart } from '@/features/Dashboard/components/Chart'
+import { Button } from '@/shared/ui'
 
 export const Dashboard = () => {
     const [dataList, setDataList] = useState<IDataProgressType>(null)

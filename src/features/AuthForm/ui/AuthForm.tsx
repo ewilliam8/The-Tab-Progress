@@ -2,19 +2,11 @@
 
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/shared/config/supabaseClient'
-
-// Types
 import { Routes } from '@/shared/config/routes'
 import { type MouseEvent, useCallback, useState } from 'react'
-
-// Styles, Icons
 import styles from './AuthForm.module.css'
-import LogIn from '../../../../public/assets/icons/log-in.svg'
-import CornerRight from '../../../../public/assets/icons/corner-right.svg'
-
-// Components
-import { Button } from '@/shared/ui/Button'
-import { Input } from '@/shared/ui/Input/Input'
+import { CornerRightDown, LogIn } from 'lucide-react'
+import { Button, Input } from '@/shared/ui'
 
 export const AuthForm = () => {
     const router = useRouter()
@@ -85,7 +77,7 @@ export const AuthForm = () => {
                     type='submit'
                     onClick={onClickSignUp}
                 >
-                    <CornerRight width={14} height={14}/>
+                    <CornerRightDown width={14} height={14}/>
                     <span className="ml-2">
                         Sign Up
                     </span>

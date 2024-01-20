@@ -8,9 +8,7 @@ import {
     SheetTitle,
     SheetTrigger,
 } from './Sheet'
-import { Input } from '@/shared/ui/Input/Input'
-import { Button } from '@/shared/ui/Button'
-import { Label } from '@/shared/ui/Label/Label'
+import { Button, Input, Label } from '@/shared/ui';
 
 export function SheetCompound() {
     return (

@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { cn } from '@/shared/lib/utils'
+import { cn } from '@/shared/lib/cn'
 import {
     NavMenu,
     NavigationMenuContent,
@@ -10,10 +10,10 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
 } from './NavMenu'
-import { Button } from '@/shared/ui/Button'
 import { useLogout } from '@/entities/Session'
 import { Routes } from '@/shared/config/routes'
 import { navigation } from '@/shared/config/navigation'
+import { Button } from '@/shared/ui'
 
 export function NavMenuCompound() {
     const { onLogOut } = useLogout()

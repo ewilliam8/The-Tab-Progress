@@ -1,27 +1,23 @@
 import { memo } from 'react'
-
-// Styles
+import { clsx } from 'clsx'
+import { APP_NAME } from '@/shared/consts/app'
+import { navigation } from '@/shared/config/navigation'
 import styles from './LandingHeader.module.scss'
-
-// Components
-import { Box } from '@/shared/ui/Box'
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink'
+import { Button } from '@/shared/ui'
+import Link from 'next/link'
 
 export const LandingHeader = memo(() => {
     return (
         <div className={styles.LandingHeader}>
-            <Box alignItems classname={styles.items}>
-                The Tab Progress
-                <AppLink
-                    to={'/dashboard'}
-                    theme={AppLinkTheme.OUTLINED}
-                >
-                    Dashboard
-                </AppLink>
-            </Box>
+            <div className={clsx(styles.items, 'align-middle')}>
+                {APP_NAME}
+                <Button variant="outline">
+                    <Link href={navigation.DASHBOARD.path}>{navigation.DASHBOARD.name}</Link>
+                </Button>
+            </div>
             <div className={styles.color} />
         </div>
     )
 })
 
-LandingHeader.displayName = 'LandingHeader';
+LandingHeader.displayName = 'LandingHeader'

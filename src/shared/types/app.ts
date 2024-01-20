@@ -1,9 +1,3 @@
-export interface Session {
-    user: {
-        id: string
-    }
-}
-
 export interface IDataProgress {
     id: string
     value: number

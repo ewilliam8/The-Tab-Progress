@@ -1,18 +1,9 @@
 import { useCallback } from 'react'
-
-// Api
 import { deleteItem } from '@/shared/api/deleteItem'
-
-// Types
 import { IDataProgress } from '@/shared/types/app'
-
-// Styles and Images
 import styles from './ListItem.module.scss'
-import Pencil from '../../../../../public/assets/icons/pencil.svg'
-import Trash from '../../../../../public/assets/icons/trash.svg'
-
-// Components
-import { Button } from '@/shared/ui/Button'
+import { Trash2, Pencil } from 'lucide-react'
+import { Button } from '@/shared/ui'
 
 interface ListItemProps extends IDataProgress{
     isEditable?: boolean
@@ -51,7 +42,7 @@ export const ListItem = (props: ListItemProps) => {
                         variant={'secondary'}
                         size={'icon'}
                     >
-                        <Trash width={14} height={14} />
+                        <Trash2 width={14} height={14} />
                     </Button>
                 </div>
             }
