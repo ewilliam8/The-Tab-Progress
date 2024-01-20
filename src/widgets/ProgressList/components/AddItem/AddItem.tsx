@@ -3,11 +3,7 @@ import { useCallback, useState } from 'react'
 import styles from './AddItem.module.scss'
 import { getSessionUserId } from '@/entities/Session'
 import { Plus } from 'lucide-react'
-
-// Api
 import { insert } from '@/shared/api/insert'
-
-// Components
 import { Input, Button } from '@/shared/ui'
 
 export const AddItem = () => {
@@ -15,7 +11,7 @@ export const AddItem = () => {
     const [n, setN] = useState('')
 
     const onInsert = useCallback(async () => {
-        await insert(n, userId)
+        await insert(Number(n), userId)
     }, [n, userId])
 
     return (

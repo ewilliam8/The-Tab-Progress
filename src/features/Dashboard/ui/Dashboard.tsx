@@ -1,15 +1,13 @@
 import styles from './Dashboard.module.css'
-
-// React, Redux
 import { useCallback, useLayoutEffect, useState } from 'react'
-import { IDataProgressType } from '@/shared/types/app'
 import { selectAll } from '@/shared/api/selectAll'
 import { ProgressList } from '@/widgets/ProgressList'
 import { Chart } from '@/features/Dashboard/components/Chart'
 import { Button } from '@/shared/ui'
+import { Tables } from '@/shared/types/database.types'
 
 export const Dashboard = () => {
-    const [dataList, setDataList] = useState<IDataProgressType>(null)
+    const [dataList, setDataList] = useState<Tables<'progress'>[] | null>(null)
 
     const onUpdateList = useCallback(async () => {
         const { data: dataSelect } = await selectAll()
@@ -34,7 +32,7 @@ export const Dashboard = () => {
             </Button>
             <ProgressList
                 slice={7}
-                list={dataList}
+                dataList={dataList}
             />
         </div>
     )

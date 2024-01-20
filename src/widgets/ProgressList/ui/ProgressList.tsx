@@ -1,29 +1,25 @@
-
 import styles from './ProgressList.module.scss'
-
-// Types
-import { IDataProgressType } from '@/shared/types/app'
-
-// Components
 import { AddItem } from '../components/AddItem/AddItem'
 import { ListItem } from '../components/ListItem/ListItem'
+import { Tables } from '@/shared/types/database.types'
 
 interface ProgressListProps {
-    list: IDataProgressType
+    dataList: Tables<'progress'>[] | null
     slice?: number
 }
 
 export const ProgressList = (props: ProgressListProps) => {
     const {
-        list,
+        dataList,
         slice,
     } = props
 
-    if (!list) return null
+    if (!dataList) return null
+
     return (
         <div className={styles.ProgressList}>
             <AddItem />
-            {list
+            {dataList
                 .toReversed()
                 .slice(0, slice || -1)
                 .map((item, i) =>

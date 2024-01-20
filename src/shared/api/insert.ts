@@ -1,8 +1,8 @@
 import { supabase } from '@/shared/config/supabaseClient'
 
 export const insert = async (
-    value: number | string,
-    userId?: string
+    value: number,
+    userId: string
 ) => {
 
     const { data, error } = await supabase
