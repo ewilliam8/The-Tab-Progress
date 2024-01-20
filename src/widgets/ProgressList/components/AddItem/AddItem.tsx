@@ -23,7 +23,7 @@ export const AddItem = () => {
         <div className={styles.AddItem}>
             <Input
                 value={n}
-                onChange={setN}
+                onChange={(val) => setN(val.target.value)}
             />
             <Button
                 onClick={onInsert}

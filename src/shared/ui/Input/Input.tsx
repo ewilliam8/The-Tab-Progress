@@ -1,47 +1,25 @@
-import type { ChangeEvent } from 'react'
-import styles from './Input.module.scss'
+import * as React from 'react'
 
-enum InputType {
-    PASSWORD= 'password'
-}
+import { cn } from '@/shared/lib/utils'
 
-interface InputProps {
-    value: string
-    onChange: (value: string) => void
-    type?: InputType.PASSWORD | string
-    name?: string
-}
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-export const Input = (props: InputProps) => {
-    const {
-        type,
-        value,
-        onChange,
-        name,
-    } = props
-
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        onChange(event.target.value)
-    }
-
-    return (
-        <div
-            className={styles.InputWrp}
-        >
-            {name &&
-                <label
-                    htmlFor={name}
-                    className={styles.label}
-                >{name}</label>
-            }
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+    ({ className, type, ...props }, ref) => {
+        return (
             <input
-                id={name}
                 type={type}
-                value={value}
-                onChange={handleChange}
-                className={styles.Input}
-                autoComplete={type === InputType.PASSWORD ? 'on' : 'off'}
+                className={cn(
+                    'flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
+                    className
+                )}
+                ref={ref}
+                {...props}
             />
-        </div>
-    )
-}
+        )
+    }
+)
+Input.displayName = 'Input'
+
+export { Input }

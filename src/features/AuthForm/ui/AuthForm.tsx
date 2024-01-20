@@ -61,14 +61,14 @@ export const AuthForm = () => {
             <Input
                 name='Email'
                 value={email}
-                onChange={setEmail}
+                onChange={(val) => setEmail(val.target.value)}
             />
 
             <Input
                 value={pass}
                 name='Password'
                 type={'password'}
-                onChange={setPass}
+                onChange={(val) => setPass(val.target.value)}
             />
 
             <div className={styles.buttons}>
@@ -76,7 +76,7 @@ export const AuthForm = () => {
                     type='submit'
                     onClick={onClickSignIn}
                 >
-                    <LogIn width={14} height={14} />
+                    <LogIn width={14} height={14}/>
                     <span className="ml-2">
                         Sign In
                     </span>
@@ -85,7 +85,7 @@ export const AuthForm = () => {
                     type='submit'
                     onClick={onClickSignUp}
                 >
-                    <CornerRight width={14} height={14} />
+                    <CornerRight width={14} height={14}/>
                     <span className="ml-2">
                         Sign Up
                     </span>
