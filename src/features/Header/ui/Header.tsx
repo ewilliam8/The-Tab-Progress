@@ -1,8 +1,8 @@
+import Link from 'next/link'
+import { Menubar } from '@/shared/ui'
 import styles from './Header.module.scss'
 import { APP_NAME } from '@/shared/consts/app'
-import Link from 'next/link'
 import { Routes } from '@/shared/config/routes'
-import { NavMenuCompound } from '@/shared/ui/NavMenu/NavMenuCompound'
 
 export const Header = () => {
     return (
@@ -12,7 +12,7 @@ export const Header = () => {
                     {APP_NAME}
                 </Link>
 
-                <NavMenuCompound />
+                <Menubar />
             </div>
         </header>
     )
