@@ -1,10 +1,10 @@
 import styles from './Dashboard.module.css'
 import { useCallback, useLayoutEffect, useState } from 'react'
-import { selectAll } from '@/shared/api/selectAll'
 import { ProgressList } from '@/widgets/ProgressList'
 import { Chart } from '@/features/Dashboard/components/Chart'
 import { Button } from '@/shared/ui'
 import { Tables } from '@/shared/types/database.types'
+import { selectAll } from '@/entities/Progress'
 
 export const Dashboard = () => {
     const [dataList, setDataList] = useState<Tables<'progress'>[] | null>(null)

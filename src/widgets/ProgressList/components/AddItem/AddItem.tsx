@@ -3,8 +3,8 @@ import { useCallback, useState } from 'react'
 import styles from './AddItem.module.scss'
 import { getSessionUserId } from '@/entities/Session'
 import { Plus } from 'lucide-react'
-import { insert } from '@/shared/api/insert'
 import { Input, Button } from '@/shared/ui'
+import { insert } from '@/entities/Progress'
 
 export const AddItem = () => {
     const userId = useSelector(getSessionUserId)

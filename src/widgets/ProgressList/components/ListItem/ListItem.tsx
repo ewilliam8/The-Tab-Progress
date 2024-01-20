@@ -1,9 +1,9 @@
 import { useCallback } from 'react'
-import { deleteItem } from '@/shared/api/deleteItem'
 import styles from './ListItem.module.scss'
 import { Trash2, Pencil } from 'lucide-react'
 import { Button } from '@/shared/ui'
 import { Tables } from '@/shared/types/database.types'
+import { deleteItem } from '@/entities/Progress'
 
 interface ListItemProps extends Tables<'progress'>{
     isEditable?: boolean
