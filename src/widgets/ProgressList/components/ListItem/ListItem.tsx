@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import styles from './ListItem.module.scss'
 import { Trash2, Pencil } from 'lucide-react'
-import { Button } from '@/shared/ui'
+import { AlertDialog, Button } from '@/shared/ui'
 import { Tables } from '@/shared/types/database.types'
 import { deleteItem } from '@/entities/Progress'
 
@@ -37,13 +37,17 @@ export const ListItem = (props: ListItemProps) => {
                     >
                         <Pencil width={14} height={14} />
                     </Button>
-                    <Button
-                        onClick={onDelete}
-                        variant={'secondary'}
-                        size={'icon'}
-                    >
-                        <Trash2 width={14} height={14} />
-                    </Button>
+                    <AlertDialog
+                        trigger={
+                            <Button
+                                variant={'secondary'}
+                                size={'icon'}
+                            >
+                                <Trash2 width={14} height={14} />
+                            </Button>}
+                        title="Are you absolutely sure?"
+                        description="This action cannot be undone. This will permanently delete progress data from our servers."
+                        onSubmit={onDelete} />
                 </div>
             }
         </div>

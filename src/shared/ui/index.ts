@@ -1,4 +1,5 @@
-export { Button } from './Button/Button'
 export { Input } from './Input/Input'
 export { Label } from './Label/Label'
+export { Button, buttonVariants } from './Button/Button'
 export { MenubarCompound as Menubar } from './Menubar/MenubarCompound'
+export { AlertDialogCompound as AlertDialog } from './AlertDialog/AlertDialogCompound'
