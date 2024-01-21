@@ -23,7 +23,7 @@ export function MenubarCompound() {
                     Menu
                     <Menu width={14} height={14} />
                 </MenubarTrigger>
-                <MenubarContent>
+                <MenubarContent align='end'>
                     <MenubarItem onClick={() => router.push(navigation.DASHBOARD.path)} className="gap-2">
                         {navigation.DASHBOARD.icon}
                         {navigation.DASHBOARD.name}

@@ -5,7 +5,7 @@ import { supabase } from '@/shared/config/supabaseClient'
 import { Routes } from '@/shared/config/routes'
 import { type MouseEvent, useCallback, useState } from 'react'
 import styles from './AuthForm.module.css'
-import { CornerRightDown, LogIn } from 'lucide-react'
+import { CornerDownRight, LogIn } from 'lucide-react'
 import { Button, Input } from '@/shared/ui'
 
 export const AuthForm = () => {
@@ -77,7 +77,7 @@ export const AuthForm = () => {
                     type='submit'
                     onClick={onClickSignUp}
                 >
-                    <CornerRightDown width={14} height={14}/>
+                    <CornerDownRight width={14} height={14}/>
                     <span className="ml-2">
                         Sign Up
                     </span>
