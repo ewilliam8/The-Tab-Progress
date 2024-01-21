@@ -2,7 +2,6 @@ import styles from './Dashboard.module.css'
 import { useCallback, useLayoutEffect, useState } from 'react'
 import { ProgressList } from '@/widgets/ProgressList'
 import { Chart } from '@/features/Dashboard/components/Chart'
-import { Button } from '@/shared/ui'
 import { Tables } from '@/shared/types/database.types'
 import { selectAll } from '@/entities/Progress'
 
@@ -24,15 +23,10 @@ export const Dashboard = () => {
 
             <Chart dataList={dataList} />
 
-            <Button
-                onClick={onUpdateList}
-                variant={'secondary'}
-            >
-                Update list
-            </Button>
             <ProgressList
                 slice={7}
                 dataList={dataList}
+                onUpdateList={onUpdateList}
             />
         </div>
     )

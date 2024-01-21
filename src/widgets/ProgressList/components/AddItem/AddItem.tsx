@@ -6,13 +6,14 @@ import { Plus } from 'lucide-react'
 import { Input, Button } from '@/shared/ui'
 import { insert } from '@/entities/Progress'
 
-export const AddItem = () => {
+export const AddItem = ({ onUpdateList }: { onUpdateList: () => void }) => {
     const userId = useSelector(getSessionUserId)
     const [n, setN] = useState('')
 
     const onInsert = useCallback(async () => {
         await insert(Number(n), userId)
-    }, [n, userId])
+        onUpdateList() // TODO: delete Props drilling
+    }, [n, onUpdateList, userId])
 
     return (
         <div className={styles.AddItem}>

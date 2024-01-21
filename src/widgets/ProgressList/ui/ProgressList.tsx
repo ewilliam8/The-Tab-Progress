@@ -5,12 +5,14 @@ import { Tables } from '@/shared/types/database.types'
 
 interface ProgressListProps {
     dataList: Tables<'progress'>[] | null
+    onUpdateList: () => void
     slice?: number
 }
 
 export const ProgressList = (props: ProgressListProps) => {
     const {
         dataList,
+        onUpdateList,
         slice,
     } = props
 
@@ -18,7 +20,7 @@ export const ProgressList = (props: ProgressListProps) => {
 
     return (
         <div className={styles.ProgressList}>
-            <AddItem />
+            <AddItem onUpdateList={onUpdateList} />
             {dataList
                 .toReversed()
                 .slice(0, slice || -1)
