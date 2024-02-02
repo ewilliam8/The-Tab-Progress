@@ -1,20 +1,12 @@
 'use client'
 
-import {useRouter} from 'next/navigation'
-import {supabase} from '@/shared/config/supabaseClient'
-
-// Types
-import {Routes} from '@/shared/config/routes'
-import {type MouseEvent, useCallback, useState} from 'react'
-
-// Styles, Icons
+import { useRouter } from 'next/navigation'
+import { supabase } from '@/shared/config/supabaseClient'
+import { Routes } from '@/shared/config/routes'
+import { type MouseEvent, useCallback, useState } from 'react'
 import styles from './AuthForm.module.css'
-import logIn from '../../../../public/assets/icons/log-in.svg'
-import cornerRight from '../../../../public/assets/icons/corner-right.svg'
-
-// Components
-import {Input} from '@/shared/ui/Input'
-import {Button} from '@/shared/ui/Button'
+import { CornerDownRight, LogIn } from 'lucide-react'
+import { Button, Input } from '@/shared/ui'
 
 export const AuthForm = () => {
     const router = useRouter()
@@ -61,30 +53,34 @@ export const AuthForm = () => {
             <Input
                 name='Email'
                 value={email}
-                onChange={setEmail}
+                onChange={(val) => setEmail(val.target.value)}
             />
 
             <Input
                 value={pass}
                 name='Password'
                 type={'password'}
-                onChange={setPass}
+                onChange={(val) => setPass(val.target.value)}
             />
 
             <div className={styles.buttons}>
                 <Button
                     type='submit'
-                    icon={logIn}
                     onClick={onClickSignIn}
                 >
-                    Sign In
+                    <LogIn width={14} height={14}/>
+                    <span className="ml-2">
+                        Sign In
+                    </span>
                 </Button>
                 <Button
                     type='submit'
-                    icon={cornerRight}
                     onClick={onClickSignUp}
                 >
-                    Sign Up
+                    <CornerDownRight width={14} height={14}/>
+                    <span className="ml-2">
+                        Sign Up
+                    </span>
                 </Button>
             </div>
             {error

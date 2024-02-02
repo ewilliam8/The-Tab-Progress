@@ -1,8 +1,8 @@
-import {memo} from 'react'
+import { memo } from 'react'
 import styles from './MainSlide.module.scss'
-import {APP_DESC} from '@/shared/consts/app'
+import { APP_DESC } from '@/shared/consts/app'
 
-import {Chart} from '../Chart/Chart'
+import { Chart } from '../Chart/Chart'
 
 export const MainSlide = memo(() => {
     return (
