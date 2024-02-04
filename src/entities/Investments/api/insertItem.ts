@@ -4,12 +4,13 @@ export const insertItem = async (
     amount: number,
     currency: string,
     userId: string,
+    type: string,
 ) => {
 
     const { data, error } = await supabase
         .from('investments')
         .insert([
-            { user_id: userId, amount, currency },
+            { user_id: userId, amount, currency, type },
         ])
         .select()
 
