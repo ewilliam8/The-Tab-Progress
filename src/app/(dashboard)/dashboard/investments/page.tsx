@@ -1,7 +1,7 @@
 'use client'
 
-import { InvestAddCard } from '@/features/Investments/InvestAddCard';
-import { getAll } from '@/entities/Investments';
+import { InvestAddCard } from '@/features/Investments/InvestAddCard'
+import { getAll } from '@/entities/Investments'
 import { useLayoutEffect, useState } from 'react'
 import { Tables } from '@/shared/types/database.types'
 
