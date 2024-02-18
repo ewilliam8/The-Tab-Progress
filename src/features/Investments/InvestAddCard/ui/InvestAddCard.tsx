@@ -55,6 +55,7 @@ export const InvestAddCard = () => {
             onClick={onSubmit}
             variant={'secondary'}
             size={'icon'}
+            className="shrink-0"
         >
             <Plus width={14} height={14}/>
         </Button>
