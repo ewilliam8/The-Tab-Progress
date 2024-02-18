@@ -1,8 +1,8 @@
 import { useCallback, useLayoutEffect, useState } from 'react'
-import { ProgressList } from '@/widgets/ProgressList'
 import { Tables } from '@/shared/types/database.types'
 import { selectAll } from '@/entities/Progress'
 import { ProgressChart } from './ProgressChart'
+import { ProgressList } from '@/features/Progress';
 
 export const Progress = () => {
     const [dataList, setDataList] = useState<Tables<'progress'>[] | null>(null)

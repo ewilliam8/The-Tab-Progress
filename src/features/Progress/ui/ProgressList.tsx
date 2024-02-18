@@ -1,7 +1,6 @@
-import styles from './ProgressList.module.scss'
-import { AddItem } from '../components/AddItem/AddItem'
-import { ListItem } from '../components/ListItem/ListItem'
 import { Tables } from '@/shared/types/database.types'
+import { ProgressListItem } from './ProgressListItem'
+import { ProgressAddItem } from './ProgressAddItem'
 
 interface ProgressListProps {
     dataList: Tables<'progress'>[] | null
@@ -19,18 +18,18 @@ export const ProgressList = (props: ProgressListProps) => {
     if (!dataList) return null
 
     return (
-        <div className={styles.ProgressList}>
-            <AddItem onUpdateList={onUpdateList} />
+        <>
+            <ProgressAddItem onUpdateList={onUpdateList} />
             {dataList
                 .toReversed()
                 .slice(0, slice || -1)
                 .map((item, i) =>
-                    <ListItem
+                    <ProgressListItem
                         key={item.id}
                         isEditable={i === 0}
                         {...item}
                     />)
             }
-        </div>
+        </>
     )
 }

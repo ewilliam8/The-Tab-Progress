@@ -1,15 +1,14 @@
 import { useCallback } from 'react'
-import styles from './ListItem.module.scss'
 import { Trash2, Pencil } from 'lucide-react'
 import { AlertDialog, Button } from '@/shared/ui'
 import { Tables } from '@/shared/types/database.types'
 import { deleteItem } from '@/entities/Progress'
 
-interface ListItemProps extends Tables<'progress'>{
+interface ProgressListItemProps extends Tables<'progress'>{
     isEditable?: boolean
 }
 
-export const ListItem = (props: ListItemProps) => {
+export const ProgressListItem = (props: ProgressListItemProps) => {
     const {
         id,
         value,
@@ -22,15 +21,15 @@ export const ListItem = (props: ListItemProps) => {
     }, [id])
 
     return (
-        <div className={styles.ListItem}>
-            <div className={styles.info}>
-                <span className={styles.value}>
+        <div className="flex my-2 p-3 rounded-md border justify-between items-center border-secondary">
+            <div className="flex flex-col text-secondary">
+                <span className="text-2xl text-accent">
                     {value}
                 </span>
                 {created_at}
             </div>
             {isEditable &&
-                <div className={styles.control}>
+                <div className="flex flex-row gap-3">
                     <Button
                         variant={'secondary'}
                         size={'icon'}
