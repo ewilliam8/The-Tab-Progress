@@ -44,7 +44,7 @@
     "eslint-plugin-storybook": "0.6.15",
     "postcss": "8.4.33",
     "sass": "1.69.4",
-    "storybook": "7.6.5",
+    "storybook": "6.5.16",
     "stylelint": "15.11.0",
     "stylelint-config-standard": "34.0.0",
     "syncpack": "11.2.1",

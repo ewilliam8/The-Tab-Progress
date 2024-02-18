@@ -1,4 +1,3 @@
-import styles from './Dashboard.module.css'
 import { useCallback, useLayoutEffect, useState } from 'react'
 import { ProgressList } from '@/widgets/ProgressList'
 import { Chart } from '@/features/Dashboard/components/Chart'
@@ -18,7 +17,7 @@ export const Dashboard = () => {
     }, [onUpdateList])
 
     return (
-        <div className={styles.dashboard}>
+        <>
             {/* ADD PHOTOS BLOCK */}
 
             <Chart dataList={dataList} />
@@ -28,6 +27,6 @@ export const Dashboard = () => {
                 dataList={dataList}
                 onUpdateList={onUpdateList}
             />
-        </div>
+        </>
     )
 }

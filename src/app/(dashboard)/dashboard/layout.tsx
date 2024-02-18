@@ -15,8 +15,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Provider store={store}>
             <AuthProvider>
                 <div className="layout">
-                    <Header />
-                    {children}
+                    <Header className='sticky bg-background flex items-center justify-between border-b border-secondary mb-2' />
+                    <div className="p-2">
+                        {children}
+                    </div>
                 </div>
             </AuthProvider>
         </Provider>
