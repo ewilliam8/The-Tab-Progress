@@ -1,10 +1,10 @@
 import { useCallback, useLayoutEffect, useState } from 'react'
 import { ProgressList } from '@/widgets/ProgressList'
-import { Chart } from '@/features/Dashboard/components/Chart'
 import { Tables } from '@/shared/types/database.types'
 import { selectAll } from '@/entities/Progress'
+import { ProgressChart } from './ProgressChart'
 
-export const Dashboard = () => {
+export const Progress = () => {
     const [dataList, setDataList] = useState<Tables<'progress'>[] | null>(null)
 
     const onUpdateList = useCallback(async () => {
@@ -20,7 +20,7 @@ export const Dashboard = () => {
         <>
             {/* ADD PHOTOS BLOCK */}
 
-            <Chart dataList={dataList} />
+            <ProgressChart dataList={dataList} />
 
             <ProgressList
                 slice={7}

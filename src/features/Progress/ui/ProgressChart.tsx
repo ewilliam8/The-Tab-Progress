@@ -1,5 +1,4 @@
 import { memo } from 'react'
-import styles from './Chart.module.scss'
 import {
     Area,
     XAxis,
@@ -9,18 +8,18 @@ import {
     CartesianGrid,
     ResponsiveContainer
 } from 'recharts'
-import { Tables } from '@/shared/types/database.types'
+import type { Tables } from '@/shared/types/database.types'
 
-interface ChartProps {
+interface ProgressChartProps {
     dataList: Tables<'progress'>[] | null
 }
 
-export const Chart = memo(({ dataList }: ChartProps) => {
+export const ProgressChart = memo(({ dataList }: ProgressChartProps) => {
 
     if(!dataList) return null
 
     return (
-        <div className={styles.chart}>
+        <div className="h-80 border border-secondary rounded-md p-3 mb-4">
             <ResponsiveContainer width="100%" height="100%">
                 <AreaChart
                     data={dataList || []}
@@ -49,4 +48,4 @@ export const Chart = memo(({ dataList }: ChartProps) => {
     )
 })
 
-Chart.displayName = 'Chart'
+ProgressChart.displayName = 'ProgressChart'
