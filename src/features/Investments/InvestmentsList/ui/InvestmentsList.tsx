@@ -2,12 +2,22 @@ import { useLayoutEffect, useState } from 'react'
 import { Tables } from '@/shared/types/database.types'
 import { getAll } from '@/entities/Investments'
 
-export const InvestmentsList = () => {
+type InvestmentsListProps = {
+    sliceCount?: number
+}
+
+export const InvestmentsList = ({ sliceCount }: InvestmentsListProps) => {
     const [dataList, setDataList] = useState<Tables<'investments'>[] | null>(null)
 
     const onUpdateList = async () => {
         const { investments } = await getAll()
-        setDataList(investments)
+
+        let investmentsArr = investments?.reverse() || null
+        if (sliceCount && investmentsArr) {
+            investmentsArr = investmentsArr.slice(0, sliceCount)
+        }
+
+        setDataList(investmentsArr)
     }
 
     useLayoutEffect(() => {

@@ -24,6 +24,7 @@ export const ProgressAddItem = ({ onUpdateList }: { onUpdateList: () => void }) 
                 onClick={onInsert}
                 variant={'secondary'}
                 size={'icon'}
+                className='grow'
             >
                 <Plus width={14} height={14} />
             </Button>

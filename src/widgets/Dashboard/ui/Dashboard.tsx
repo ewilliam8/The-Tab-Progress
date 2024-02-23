@@ -1,10 +1,10 @@
+import { ProgressChart } from '@/features/Progress'
 import { useCallback, useLayoutEffect, useState } from 'react'
-import { Tables } from '@/shared/types/database.types'
 import { selectAll } from '@/entities/Progress'
-import { ProgressChart } from './ProgressChart'
-import { ProgressList } from '@/features/Progress';
+import { Tables } from '@/shared/types/database.types'
+import { InvestmentsList } from '@/features/Investments/InvestmentsList';
 
-export const Progress = () => {
+export const Dashboard = () => {
     const [dataList, setDataList] = useState<Tables<'progress'>[] | null>(null)
 
     const onUpdateList = useCallback(async () => {
@@ -20,13 +20,13 @@ export const Progress = () => {
         <>
             {/* ADD PHOTOS BLOCK */}
 
-            <ProgressChart dataList={dataList} />
+            {dataList && <>
+                <h2>Progress</h2>
+                <ProgressChart dataList={dataList} />
+            </>}
 
-            <ProgressList
-                slice={7}
-                dataList={dataList}
-                onUpdateList={onUpdateList}
-            />
+            <h2>Investments</h2>
+            <InvestmentsList sliceCount={8} />
         </>
     )
 }

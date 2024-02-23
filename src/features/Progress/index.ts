@@ -1,2 +1,2 @@
-export { Progress } from './ui/Progress'
 export { ProgressList } from './ui/ProgressList'
+export { ProgressChart } from './ui/ProgressChart'

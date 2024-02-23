@@ -1,9 +1,9 @@
 'use client'
 
-import { Progress } from '@/features/Progress'
+import { Dashboard } from '@/widgets/Dashboard'
 
 export default function DashboardPage() {
     return (
-        <Progress />
+        <Dashboard />
     )
 }
