@@ -4,26 +4,19 @@ import { AlertDialog, Button } from '@/shared/ui'
 import { Tables } from '@/shared/types/database.types'
 import { deleteItem } from '@/entities/Progress'
 
-interface ProgressListItemProps extends Tables<'progress'>{
+interface ProgressListItemProps extends Tables<'progress'> {
     isEditable?: boolean
 }
 
-export const ProgressListItem = (props: ProgressListItemProps) => {
-    const {
-        id,
-        value,
-        created_at,
-        isEditable,
-    } = props
-
-    const onDelete = useCallback(async () => {
+export const ProgressListItem = ({ id, value, created_at, isEditable, }: ProgressListItemProps) => {
+    const onDelete = async () => {
         await deleteItem(id)
-    }, [id])
+    }
 
     return (
-        <div className="flex my-2 p-3 rounded-md border justify-between items-center border-secondary">
-            <div className="flex flex-col text-secondary">
-                <span className="text-2xl text-accent">
+        <div className="flex my-2 p-3 rounded-md border justify-between items-center border-secondary relative overflow-hidden">
+            <div className="flex flex-col text-secondary ml-24">
+                <span className="text-accent text-5xl absolute left-0 top-1 my-auto">
                     {value}
                 </span>
                 {created_at}
@@ -34,7 +27,7 @@ export const ProgressListItem = (props: ProgressListItemProps) => {
                         variant={'secondary'}
                         size={'icon'}
                     >
-                        <Pencil width={14} height={14} />
+                        <Pencil size={14}/>
                     </Button>
                     <AlertDialog
                         trigger={
@@ -42,11 +35,11 @@ export const ProgressListItem = (props: ProgressListItemProps) => {
                                 variant={'secondary'}
                                 size={'icon'}
                             >
-                                <Trash2 width={14} height={14} />
+                                <Trash2 size={14}/>
                             </Button>}
                         title="Are you absolutely sure?"
                         description="This action cannot be undone. This will permanently delete progress data from our servers."
-                        onSubmit={onDelete} />
+                        onSubmit={onDelete}/>
                 </div>
             }
         </div>
