@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { useCallback, useState } from 'react'
+import { useState } from 'react'
 import { getSessionUserId } from '@/entities/Session'
 import { Plus } from 'lucide-react'
 import { Input, Button } from '@/shared/ui'
@@ -9,10 +9,11 @@ export const ProgressAddItem = ({ onUpdateList }: { onUpdateList: () => void }) 
     const userId = useSelector(getSessionUserId)
     const [n, setN] = useState('')
 
-    const onInsert = useCallback(async () => {
+    const onInsert = async () => {
         await insert(Number(n), userId)
         onUpdateList() // TODO: delete Props drilling
-    }, [n, onUpdateList, userId])
+        setN('')
+    }
 
     return (
         <div className="flex w-full gap-5">
@@ -22,11 +23,11 @@ export const ProgressAddItem = ({ onUpdateList }: { onUpdateList: () => void }) 
             />
             <Button
                 onClick={onInsert}
-                variant={'secondary'}
-                size={'icon'}
+                variant='secondary'
+                size='icon'
                 className='grow'
             >
-                <Plus width={14} height={14} />
+                <Plus size={14} />
             </Button>
         </div>
     )
