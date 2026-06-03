@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { LoginFormSchema, loginFormSchema } from '../../model/loginFormSchema'
@@ -22,6 +23,7 @@ type LoginFormData = {
 
 export const SignUpForm = () => {
   const navigate = useNavigate()
+  const submittingRef = useRef(false)
 
   const formContext = useForm<LoginFormSchema>({
     resolver: zodResolver(loginFormSchema),
@@ -32,30 +34,33 @@ export const SignUpForm = () => {
   })
 
   const onSubmit = async ({ email, password }: LoginFormData) => {
+    if (submittingRef.current) return
+    submittingRef.current = true
+
     const redirectUrl =
       import.meta.env.VITE_REDIRECT_URL || window.location.origin
 
-    await supabase.auth
-      .signUp({
+    try {
+      const { error } = await supabase.auth.signUp({
         email,
         password,
-        options: {
-          emailRedirectTo: redirectUrl,
-        },
+        options: { emailRedirectTo: redirectUrl },
       })
-      .then(({ error }) => {
-        if (error) {
-          formContext.setError('root.serverError', { message: error.message })
-        } else {
-          const destination = hasCompletedOnboarding()
-            ? getRootPath()
-            : getOnboardingPath()
-          navigate(destination, { replace: true })
-        }
-      })
-      .catch((error) => {
+      if (error) {
         formContext.setError('root.serverError', { message: error.message })
+      } else {
+        const destination = hasCompletedOnboarding()
+          ? getRootPath()
+          : getOnboardingPath()
+        navigate(destination, { replace: true })
+      }
+    } catch (error) {
+      formContext.setError('root.serverError', {
+        message: error instanceof Error ? error.message : 'Something went wrong',
       })
+    } finally {
+      submittingRef.current = false
+    }
   }
 
   return (
