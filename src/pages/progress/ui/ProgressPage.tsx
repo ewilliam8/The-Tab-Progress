@@ -1,6 +1,7 @@
 import { CountProgress } from '@/features/progress/CountProgress'
 import { ProgressCard } from '@/widgets/progress/ProgressCard'
 import { ProgressInRow } from '@/widgets/progress/ProgressInRow'
+import { ProgressTable } from '@/widgets/progress/ProgressTable'
 
 const FULL_WIDTH_CARD_PROPS = { className: 'w-full h-full' } as const
 
@@ -17,6 +18,10 @@ export const ProgressPage = () => {
 
       <div className="mt-4">
         <ProgressCard selectLimit />
+      </div>
+
+      <div className="mt-4 hidden lg:block">
+        <ProgressTable />
       </div>
     </>
   )

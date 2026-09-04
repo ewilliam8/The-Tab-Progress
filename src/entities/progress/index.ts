@@ -7,6 +7,11 @@ export { useRecentDescriptions } from './lib/useRecentDescriptions'
 export { useTotalForRange } from './lib/useTotalForRange'
 export type { TotalRangeKey } from './lib/useTotalForRange'
 export { aggregateEventsToDays } from './lib/aggregateEventsToDays'
+export { aggregateEventsToDayRows } from './lib/aggregateEventsToDayRows'
+export type {
+  ProgressDayRow,
+  ProgressDayEntry,
+} from './lib/aggregateEventsToDayRows'
 export { selectEventsBetween } from './api/selectEventsBetween'
 export { rpcProgressSumRange } from './api/rpcProgressSumRange'
 export { ProgressChart } from './ui/ProgressChart'
