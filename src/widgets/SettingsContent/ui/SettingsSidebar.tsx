@@ -31,7 +31,7 @@ export const SettingsSidebar = ({
                   handleSectionChange(item.id)
                 }}
                 className={cn(
-                  'w-full text-left px-3 py-2 rounded-md text-sm transition-colors',
+                  'w-full min-h-11 text-left px-3 py-2 rounded-md text-sm transition-colors sm:min-h-0',
                   isActive
                     ? 'bg-accent text-accent-foreground font-medium'
                     : 'text-muted-foreground hover:bg-accent/50 hover:text-foreground',
