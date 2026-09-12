@@ -173,7 +173,7 @@ export const CountProgress = ({ cardProps }: CountProgressProps) => {
               size="icon"
               onClick={handleCancelClick}
               aria-label="Cancel counting progress"
-              className="h-8 w-8 -mr-2 -mt-1 text-muted-foreground hover:bg-accent hover:text-foreground"
+              className="!-my-1.5 -mr-3.5 text-muted-foreground hover:bg-accent hover:text-foreground"
             >
               <X className="h-4 w-4" />
             </Button>
@@ -277,14 +277,14 @@ export const CountProgress = ({ cardProps }: CountProgressProps) => {
                     <div className="text-[11px] uppercase tracking-wider text-muted-foreground">
                       Recent
                     </div>
-                    <div className="flex flex-wrap gap-1.5 sm:flex-col sm:items-start">
+                    <div className="flex flex-wrap gap-2 sm:flex-col sm:items-start sm:gap-1.5">
                       {recents.map((value) => (
                         <button
                           key={value}
                           type="button"
                           onMouseDown={(e) => e.preventDefault()}
                           onClick={() => handleSuggestionPick(value)}
-                          className="inline-flex items-center gap-1.5 h-7 max-w-full px-2.5 rounded-md text-xs border border-border bg-background text-muted-foreground transition-colors hover:bg-accent/60 hover:text-foreground"
+                          className="inline-flex items-center gap-1.5 h-10 sm:h-7 max-w-full px-2.5 rounded-md text-xs border border-border bg-background text-muted-foreground transition-colors hover:bg-accent/60 hover:text-foreground"
                         >
                           <Clock className="h-3 w-3 shrink-0" />
                           <span className="truncate">{truncate(value)}</span>

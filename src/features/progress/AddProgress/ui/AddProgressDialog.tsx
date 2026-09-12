@@ -147,14 +147,14 @@ export const AddProgressDialog = () => {
                   <div className="text-[11px] uppercase tracking-wider text-muted-foreground">
                     Recent
                   </div>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-2 sm:gap-1.5">
                     {recents.map((value) => (
                       <button
                         key={value}
                         type="button"
                         onClick={() => handleRecentPick(value)}
                         aria-label={`Use recent note: ${value}`}
-                        className="inline-flex items-center gap-1.5 h-7 max-w-full px-2.5 rounded-md text-xs border border-border bg-background text-muted-foreground transition-colors hover:bg-accent/60 hover:text-foreground"
+                        className="inline-flex items-center gap-1.5 h-10 sm:h-7 max-w-full px-2.5 rounded-md text-xs border border-border bg-background text-muted-foreground transition-colors hover:bg-accent/60 hover:text-foreground"
                       >
                         <Clock className="h-3 w-3 shrink-0" />
                         <span className="truncate">{truncate(value)}</span>
