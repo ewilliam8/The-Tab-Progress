@@ -132,11 +132,11 @@ Base: `inline-flex items-center justify-center gap-2 rounded-md text-sm font-med
 - **`button-ghost`** — transparent, hover `bg-accent`. Icon-and-text controls inside cards (edit, the count stepper).
 - **`button-link`** — `text-primary underline-offset-4 hover:underline`. Inline text actions only.
 
-Sizes: `default` (h-9, 36px) · `sm` (h-10 mobile → h-8 desktop, text-xs) · `lg` (h-10, px-8) · `icon` (44×44px — meets the WCAG touch target; the header back button and dialog close were deliberately raised to 44px).
+Sizes: `default` (h-11 mobile → h-9 desktop) · `sm` (h-10 mobile → h-8 desktop, text-xs) · `lg` (h-10, px-8) · `icon` (44×44px — meets the WCAG touch target; the header back button and dialog close were deliberately raised to 44px).
 
 ### Inputs & Forms (`{component.input}`)
 
-- **`input`** — `h-9 rounded-md border border-input bg-transparent px-3 text-base md:text-sm`, focus `ring-1 ring-ring`. Renders at **16px on mobile** (`text-base`) to prevent iOS auto-zoom, dropping to 14px (`md:text-sm`) on desktop.
+- **`input`** — `h-11 sm:h-9 rounded-md border border-input bg-transparent px-3 text-base md:text-sm`, focus `ring-1 ring-ring`. Renders at **16px on mobile** (`text-base`) to prevent iOS auto-zoom, dropping to 14px (`md:text-sm`) on desktop.
 - Form fields auto-select on focus and carry the right `inputMode`/`autocomplete`/`enterKeyHint` attributes (e.g. numeric keypad for count/time entry, `new-password` vs `current-password` on auth). Forms guard against double-submit by disabling the primary button while the async action is in flight.
 - `Textarea`, `Select`, `Checkbox`, `Toggle`, and `Label` follow the same border/radius/focus contract.
 
@@ -153,7 +153,7 @@ The system's signature responsive component — one component, two presentations
 - **Mobile (default):** anchored to the bottom — `inset-x-0 bottom-[var(--keyboard-inset,0px)] rounded-t-2xl border-b-0`, slides up from 100%, padded `pb-[max(2.5rem, env(safe-area-inset-bottom)+1rem)]`. A `useKeyboardInset` hook listens to `visualViewport` resize/scroll and writes `--keyboard-inset` so the sheet floats exactly above the keyboard instead of being hidden behind it.
 - **Desktop (`sm:`):** recenters as a classic modal — `sm:left-1/2 sm:top-1/2 sm:-translate-*/2 sm:max-w-lg sm:rounded-lg`, slides in 8px from the bottom.
 - **Overlay:** `bg-black/80` with fade in/out. **Close:** 44×44 hit target, top-right, `aria-label="Close"`, with `focus-visible` ring and `stopPropagation` so it never bubbles into the trigger.
-- **Content rhythm:** `grid gap-4 p-6`; `DialogHeader`/`DialogTitle`/`DialogDescription`/`DialogFooter` give every dialog the same vertical cadence.
+- **Content rhythm:** `grid gap-4 p-6`; `DialogHeader`/`DialogTitle`/`DialogDescription`/`DialogFooter` give every dialog the same vertical cadence. `DialogFooter` stacks buttons on mobile (`flex-col-reverse gap-2`) and rows them right-aligned on `sm:`, always 8px apart.
 
 ### Charts (`{component.chart}`)
 
@@ -195,12 +195,12 @@ Tailwind defaults: `sm` 640px · `md` 768px · `lg` 1024px · `xl` 1280px. The s
 ### Key Adaptations
 - **Dialogs:** bottom sheet (base) → centered modal (`sm:`), keyboard-aware on touch via `--keyboard-inset`.
 - **Inputs:** 16px (`text-base`, base) → 14px (`md:text-sm`).
-- **Button `sm` size:** taller `h-10` on mobile for easier tapping → compact `h-8` on `sm:`.
+- **Button sizes:** `default` `h-11` → `h-9`, `sm` `h-10` → `h-8` on `sm:`; inputs and select triggers `h-11` → `h-9`; menu/select items `py-2.5` → `py-1.5`.
 - **Grids:** dashboard/path tiles multi-up on desktop → single column on mobile; carousels switch to peek-next horizontal scroll.
 - **Safe areas:** the app honors `viewport-fit=cover` plus `env(safe-area-inset-*)`; `min-height: 100dvh` keeps the canvas full-height with mobile browser chrome.
 
 ### Touch Targets
-Interactive controls meet WCAG (44×44px): the `icon` button size is 44px, the dialog close and header back button were explicitly raised to 44px, and touch-only affordances (e.g. the previously hover-only edit pencil) are made always-visible on touch via the `touch-visible` utility (`opacity 0.7` on touch, `0.3 → 1 on hover` for pointer devices).
+Interactive controls meet WCAG (44×44px): the `icon` button size is 44px, the dialog close and header back button were explicitly raised to 44px, `default` buttons, inputs, select triggers, and settings nav rows are 44px tall on mobile (desktop keeps its compact sizes), menu/select items and recent-note chips are ~40px on mobile; adjacent targets keep ≥8px gaps (carousel navigation sits 16px from its Add action); and touch-only affordances (e.g. the previously hover-only edit pencil) are made always-visible on touch via the `touch-visible` utility (`opacity 0.7` on touch, `0.3 → 1 on hover` for pointer devices).
 
 ## Theming
 
