@@ -35,12 +35,11 @@ export const AddPathDialog = ({ onComplete }: AddPathDialogProps) => {
     },
   })
 
-  const onSubmit = ({ step }: AddPathFormSchema) => {
-    insertPath(step, session?.user.id || '').then(() => {
-      setOpen(false)
-      onComplete?.()
-      formContext.reset()
-    })
+  const onSubmit = async ({ step }: AddPathFormSchema) => {
+    await insertPath(step, session?.user.id || '')
+    setOpen(false)
+    onComplete?.()
+    formContext.reset()
   }
 
   return (
@@ -67,6 +66,7 @@ export const AddPathDialog = ({ onComplete }: AddPathDialogProps) => {
                 name="step"
                 label="Achievement"
                 placeholder="e.g., Passed technical interview, Completed major project"
+                autoFocus
               />
 
               <FormMessage className="text-destructive text-sm">
@@ -74,7 +74,12 @@ export const AddPathDialog = ({ onComplete }: AddPathDialogProps) => {
               </FormMessage>
 
               <DialogFooter>
-                <Button type="submit">Confirm</Button>
+                <Button
+                  type="submit"
+                  disabled={formContext.formState.isSubmitting}
+                >
+                  Confirm
+                </Button>
               </DialogFooter>
             </div>
           </form>

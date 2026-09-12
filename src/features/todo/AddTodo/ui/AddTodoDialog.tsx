@@ -36,12 +36,11 @@ export const AddTodoDialog = ({ onComplete }: AddTodoDialog) => {
     },
   })
 
-  const onSubmit = ({ todo }: AddTodoFormSchema) => {
-    insertTodo(todo, session?.user.id || '').then(() => {
-      setOpen(false)
-      onComplete?.()
-      formContext.reset()
-    })
+  const onSubmit = async ({ todo }: AddTodoFormSchema) => {
+    await insertTodo(todo, session?.user.id || '')
+    setOpen(false)
+    onComplete?.()
+    formContext.reset()
   }
 
   return (
@@ -64,14 +63,25 @@ export const AddTodoDialog = ({ onComplete }: AddTodoDialog) => {
         <Form {...formContext}>
           <form onSubmit={formContext.handleSubmit(onSubmit)}>
             <div className="grid gap-4">
-              <FormInput name="todo" label="Task description" />
+              <FormInput
+                name="todo"
+                label="Task description"
+                autoFocus
+                enterKeyHint="done"
+                autoComplete="off"
+              />
 
               <FormMessage className="text-destructive text-sm">
                 {formContext.formState.errors.root?.serverError?.message}
               </FormMessage>
 
               <DialogFooter>
-                <Button type="submit">Confirm</Button>
+                <Button
+                  type="submit"
+                  disabled={formContext.formState.isSubmitting}
+                >
+                  Confirm
+                </Button>
               </DialogFooter>
             </div>
           </form>

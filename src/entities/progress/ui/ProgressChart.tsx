@@ -8,6 +8,7 @@ import { ProgressData } from '../model/types'
 import { ProgressChartSkeleton } from './ProgressChartSkeleton'
 import { ProgressEmptyState } from './ProgressEmptyState'
 import { cn } from '@/shared/lib/cn'
+import { formatMinutesToHm } from '@/shared/lib/formatMinutesToHm'
 import { getProgressPath } from '@/shared/lib/routePaths'
 import {
   Card,
@@ -34,7 +35,20 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-const CHART_MARGIN = { top: 4, left: -24, right: 12 } as const
+const CHART_MARGIN = { top: 4, left: 0, right: 12 } as const
+
+const formatAxisDate = (value: string): string =>
+  new Date(value).toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+  })
+
+const formatTooltipDate = (value: unknown): string =>
+  new Date(String(value)).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
 
 type ProgressChartProps = {
   data: ProgressData[]
@@ -115,15 +129,24 @@ export const ProgressChart = ({
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => `${value}`}
+              tickFormatter={(value: number) => formatMinutesToHm(value)}
             />
             <XAxis
               dataKey="created_at"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
+              tickFormatter={formatAxisDate}
             />
-            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+            <ChartTooltip
+              cursor={false}
+              content={
+                <ChartTooltipContent
+                  labelFormatter={formatTooltipDate}
+                  valueFormatter={formatMinutesToHm}
+                />
+              }
+            />
             <defs>
               <linearGradient id="fillProgress" x1="0" y1="0" x2="0" y2="1">
                 <stop

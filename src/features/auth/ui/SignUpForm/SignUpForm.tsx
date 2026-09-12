@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { LoginFormSchema, loginFormSchema } from '../../model/loginFormSchema'
@@ -22,6 +23,7 @@ type LoginFormData = {
 
 export const SignUpForm = () => {
   const navigate = useNavigate()
+  const submittingRef = useRef(false)
 
   const formContext = useForm<LoginFormSchema>({
     resolver: zodResolver(loginFormSchema),
@@ -32,30 +34,33 @@ export const SignUpForm = () => {
   })
 
   const onSubmit = async ({ email, password }: LoginFormData) => {
+    if (submittingRef.current) return
+    submittingRef.current = true
+
     const redirectUrl =
       import.meta.env.VITE_REDIRECT_URL || window.location.origin
 
-    await supabase.auth
-      .signUp({
+    try {
+      const { error } = await supabase.auth.signUp({
         email,
         password,
-        options: {
-          emailRedirectTo: redirectUrl,
-        },
+        options: { emailRedirectTo: redirectUrl },
       })
-      .then(({ error }) => {
-        if (error) {
-          formContext.setError('root.serverError', { message: error.message })
-        } else {
-          const destination = hasCompletedOnboarding()
-            ? getRootPath()
-            : getOnboardingPath()
-          navigate(destination, { replace: true })
-        }
-      })
-      .catch((error) => {
+      if (error) {
         formContext.setError('root.serverError', { message: error.message })
+      } else {
+        const destination = hasCompletedOnboarding()
+          ? getRootPath()
+          : getOnboardingPath()
+        navigate(destination, { replace: true })
+      }
+    } catch (error) {
+      formContext.setError('root.serverError', {
+        message: error instanceof Error ? error.message : 'Something went wrong',
       })
+    } finally {
+      submittingRef.current = false
+    }
   }
 
   return (
@@ -70,16 +75,32 @@ export const SignUpForm = () => {
         <Form {...formContext}>
           <form onSubmit={formContext.handleSubmit(onSubmit)}>
             <div className="grid gap-4">
-              <FormInput name="email" label="Email" />
+              <FormInput
+                name="email"
+                label="Email"
+                type="email"
+                inputMode="email"
+                autoComplete="email"
+                autoCapitalize="none"
+                autoCorrect="off"
+                spellCheck={false}
+                enterKeyHint="next"
+              />
               <FormInput
                 name="password"
                 label={<div className="flex">Password</div>}
                 type="password"
+                autoComplete="new-password"
+                enterKeyHint="done"
               />
               <FormMessage className="text-destructive text-sm">
                 {formContext.formState.errors.root?.serverError?.message}
               </FormMessage>
-              <Button type="submit" className="w-full">
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={formContext.formState.isSubmitting}
+              >
                 Sign Up
               </Button>
             </div>

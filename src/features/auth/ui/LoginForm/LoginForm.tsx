@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { LoginFormSchema, loginFormSchema } from '../../model/loginFormSchema'
@@ -26,6 +27,7 @@ type LoginFormProps = {
 export const LoginForm = ({onCLickSignUp}: LoginFormProps) => {
   const navigate = useNavigate()
   const location = useLocation()
+  const submittingRef = useRef(false)
 
   const formContext = useForm<LoginFormSchema>({
     resolver: zodResolver(loginFormSchema),
@@ -36,20 +38,25 @@ export const LoginForm = ({onCLickSignUp}: LoginFormProps) => {
   })
 
   const onSubmit = async ({ email, password }: LoginFormData) => {
+    if (submittingRef.current) return
+    submittingRef.current = true
+
     const from = location.state?.from?.pathname || getRootPath()
 
-    await supabase.auth
-      .signInWithPassword({ email, password })
-      .then(({ error }) => {
-        if (error) {
-          formContext.setError('root.serverError', { message: error.message })
-        } else {
-          navigate(from, { replace: true })
-        }
-      })
-      .catch((error) => {
+    try {
+      const { error } = await supabase.auth.signInWithPassword({ email, password })
+      if (error) {
         formContext.setError('root.serverError', { message: error.message })
+      } else {
+        navigate(from, { replace: true })
+      }
+    } catch (error) {
+      formContext.setError('root.serverError', {
+        message: error instanceof Error ? error.message : 'Something went wrong',
       })
+    } finally {
+      submittingRef.current = false
+    }
   }
 
   return (
@@ -64,7 +71,17 @@ export const LoginForm = ({onCLickSignUp}: LoginFormProps) => {
         <Form {...formContext}>
           <form onSubmit={formContext.handleSubmit(onSubmit)}>
             <div className="grid gap-4">
-              <FormInput name="email" label="Email" />
+              <FormInput
+                name="email"
+                label="Email"
+                type="email"
+                inputMode="email"
+                autoComplete="email"
+                autoCapitalize="none"
+                autoCorrect="off"
+                spellCheck={false}
+                enterKeyHint="next"
+              />
               <FormInput
                 name="password"
                 label={
@@ -79,13 +96,19 @@ export const LoginForm = ({onCLickSignUp}: LoginFormProps) => {
                   </div>
                 }
                 type="password"
+                autoComplete="current-password"
+                enterKeyHint="done"
               />
 
               <FormMessage className="text-destructive text-sm">
                 {formContext.formState.errors.root?.serverError?.message}
               </FormMessage>
 
-              <Button type="submit" className="w-full">
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={formContext.formState.isSubmitting}
+              >
                 Login
               </Button>
             </div>

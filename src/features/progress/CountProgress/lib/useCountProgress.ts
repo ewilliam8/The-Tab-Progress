@@ -1,47 +1,64 @@
-import { useContext, useCallback } from 'react'
-import { useCountTimeProgress } from '../lib/useCountTimeProgress'
-import {
-  progressContext,
-  updateProgress,
-  insertProgress,
-} from '@/entities/progress'
+import { useCallback, useContext } from 'react'
+import { useCountTimeProgress } from './useCountTimeProgress'
+import { insertProgress, progressContext } from '@/entities/progress'
 import { useAuth } from '@/entities/session'
-import { checkTodayDate } from '@/shared/lib/checkTodayDate'
 
 export const useCountProgress = () => {
   const { session } = useAuth()
   const {
     count,
+    description,
+    setDescription,
+    startedAt,
     startCountTime,
     stopCountTime,
+    cancelCountTime,
     isCounting,
   } = useCountTimeProgress()
-  const { progress, setProgressReload } = useContext(progressContext)
+  const { setProgressReload } = useContext(progressContext)
 
   const handleProgressUpdate = useCallback(
-    async (currentMinutes: number) => {
-      const lastProgress = progress.at(-1)
-      if (checkTodayDate(lastProgress?.created_at)) {
-        await updateProgress(lastProgress?.id || '', {
-          value: currentMinutes + (lastProgress?.value || 0),
-        })
-      } else {
-        await insertProgress(currentMinutes, session?.user.id || '')
+    async (durationSeconds: number, comment: string) => {
+      const { error } = await insertProgress(
+        durationSeconds,
+        session?.user.id || '',
+        comment,
+      )
+      if (error) {
+        console.error('insertProgress failed', error)
+        return
       }
       setProgressReload((prev) => prev + 1)
     },
-    [progress, session?.user.id, setProgressReload],
+    [session?.user.id, setProgressReload],
   )
 
-  const toggleCount = useCallback(async () => {
-    if (isCounting) {
-      stopCountTime()
-      const currentProgressMinutes = Math.floor(count / 60)
-      await handleProgressUpdate(currentProgressMinutes)
-    } else {
-      startCountTime()
-    }
-  }, [isCounting, count, startCountTime, stopCountTime, handleProgressUpdate])
+  const startCount = useCallback(
+    (initialComment?: string) => {
+      startCountTime(initialComment)
+    },
+    [startCountTime],
+  )
 
-  return { count, isCounting, toggleCount }
+  const stopCount = useCallback(async () => {
+    const finalDuration = count
+    const finalComment = description
+    stopCountTime()
+    await handleProgressUpdate(finalDuration, finalComment)
+  }, [count, description, stopCountTime, handleProgressUpdate])
+
+  const cancelCount = useCallback(() => {
+    cancelCountTime()
+  }, [cancelCountTime])
+
+  return {
+    count,
+    isCounting,
+    description,
+    setDescription,
+    startedAt,
+    startCount,
+    stopCount,
+    cancelCount,
+  }
 }

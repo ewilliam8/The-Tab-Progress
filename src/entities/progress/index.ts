@@ -2,12 +2,26 @@ export { analyzeProgressPrompt } from './lib/prompts'
 export { calculateTrend, calculateTrendLine } from './lib/calculateTrend'
 export type { TrendData, TrendLinePoint } from './lib/calculateTrend'
 export { getLastQueueArray } from './lib/getLastQueueArray'
-export { selectAllProgress } from './api/selectAllProgress'
+export { useEventsLast30Days } from './lib/useEventsLast30Days'
+export { useRecentDescriptions } from './lib/useRecentDescriptions'
+export { useTotalForRange } from './lib/useTotalForRange'
+export type { TotalRangeKey } from './lib/useTotalForRange'
+export { aggregateEventsToDays } from './lib/aggregateEventsToDays'
+export { aggregateEventsToDayRows } from './lib/aggregateEventsToDayRows'
+export type {
+  ProgressDayRow,
+  ProgressDayEntry,
+} from './lib/aggregateEventsToDayRows'
+export { selectEventsBetween } from './api/selectEventsBetween'
+export { rpcProgressSumRange } from './api/rpcProgressSumRange'
 export { ProgressChart } from './ui/ProgressChart'
 export { ProgressEmptyState } from './ui/ProgressEmptyState'
-export type { ProgressData } from './model/types'
+export type { ProgressData, ProgressEvent } from './model/types'
 export { insertProgress } from './api/insertProgress'
-export { PROGRESS_START_TIMESTAMP } from './lib/constants'
+export {
+  PROGRESS_START_TIMESTAMP,
+  PROGRESS_DESCRIPTION,
+} from './lib/constants'
 export {
   ProgressContextProvider,
   progressContext,

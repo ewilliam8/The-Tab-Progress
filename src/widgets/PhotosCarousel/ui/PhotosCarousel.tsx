@@ -56,9 +56,11 @@ export const PhotosCarousel = () => {
             Visualize your progress
           </p>
         </div>
-        <div className="space-x-2">
-          <ScrollCarouselPrev />
-          <ScrollCarouselNext />
+        <div className="flex items-center gap-4">
+          <div className="flex gap-2">
+            <ScrollCarouselPrev />
+            <ScrollCarouselNext />
+          </div>
           <AddPhotoDialog onComplete={() => setReload((prev) => !prev)} />
         </div>
       </div>
