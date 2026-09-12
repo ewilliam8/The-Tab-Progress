@@ -72,7 +72,7 @@ export const GetProgressAnalytics = () => {
           className="min-h-[260px] font-mono text-sm"
         />
 
-        <DialogFooter className="flex justify-end gap-2 pt-4">
+        <DialogFooter className="flex justify-end gap-2 pt-4 sm:gap-4">
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
